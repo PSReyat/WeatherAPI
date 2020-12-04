@@ -2,7 +2,6 @@ package com.weatherapi.dao;
 
 import java.io.IOException;
 
-import org.json.JSONObject;
 import org.springframework.stereotype.Repository;
 
 import okhttp3.OkHttpClient;
@@ -13,7 +12,7 @@ import okhttp3.Response;
 public class WeatherDAOImpl implements WeatherDAO{
 
 	@Override
-	public JSONObject getWeatherDataCity(String city) throws IOException {
+	public String getWeatherDataCity(String city) throws IOException {
 
 		OkHttpClient client = new OkHttpClient();
 
@@ -28,16 +27,12 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 		String getResponseBody = response.body().toString();
 		
-		System.out.println(getResponseBody);
-		
-		JSONObject object = new JSONObject(getResponseBody);
-		
-		return object;
+		return getResponseBody;
 		
 	}
 
 	@Override
-	public JSONObject getWeatherDataCityCountry(String city, String country) throws IOException {
+	public String getWeatherDataCityCountry(String city, String country) throws IOException {
 		
 		OkHttpClient client = new OkHttpClient();
 
@@ -52,9 +47,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 		String getResponseBody = response.body().string();
 		
-		JSONObject object = new JSONObject(getResponseBody);
-		
-		return object;
+		return getResponseBody;
 		
 	}
 
