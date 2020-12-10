@@ -13,14 +13,12 @@ public class CountryCodes {
 		this.countries = new HashMap<>();
 	    for (String iso : Locale.getISOCountries()) {
 	        Locale l = new Locale("", iso);
-	        countries.put(l.getDisplayCountry().toLowerCase(), iso.toLowerCase());
+	        countries.put(l.getDisplayCountry(), iso);
 	    }
 
 	}
 	
 	public String getCountryCode(String country) {
-		
-		System.out.println(this.countries.get(country));
 		
 		return this.countries.get(country);
 		

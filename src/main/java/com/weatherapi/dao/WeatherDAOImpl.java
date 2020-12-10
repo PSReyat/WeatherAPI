@@ -32,11 +32,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		Request request = new Request.Builder()
 			.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city)
 			.get()
-<<<<<<< HEAD
-			.addHeader("x-rapidapi-key", "[OMITTED]")
-=======
-			.addHeader("x-rapidapi-key", "[OMTTED]")
->>>>>>> bd85feb... added a class for ISO codes
+			.addHeader("x-rapidapi-key", "[OMITTED")
 			.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
 			.build();
 

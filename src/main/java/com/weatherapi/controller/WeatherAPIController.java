@@ -3,34 +3,40 @@ package com.weatherapi.controller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.weatherapi.countrycodes.CountryCodes;
 import com.weatherapi.service.WeatherService;
 
-@RestController
+@Controller
+@RequestMapping("/")
 public class WeatherAPIController {
 	
 	@Autowired
 	WeatherService wService;
 	
+	@RequestMapping("/")
+	public String getWeatherView() {
+		
+		return "weather_view";
+		
+	}
+	
 	@GetMapping("/{city}")
-	public String getCurrentWeatherDataForCity(@PathVariable String city) throws IOException {
+	public String getCurrentWeatherDataForCity(@PathVariable String city, Model model) throws IOException {
 		
 		return this.wService.getWeatherDataCity(city);
 		
 	}
 	
 	@GetMapping("/{city}/{country}")
-	public String getCurrentWeatherDataForCityAndCountry(@PathVariable String city, @PathVariable String country) throws IOException {
+	public String getCurrentWeatherDataForCityAndCountry(@PathVariable @RequestParam String city, @PathVariable @RequestParam String country) throws IOException {
 		
-		CountryCodes codes = new CountryCodes();
-		
-		String countryCode = codes.getCountryCode(country);
-		
-		return this.wService.getWeatherDataCityCountry(city, countryCode);
+		return this.wService.getWeatherDataCityCountry(city, country);
 		
 	}
 	
