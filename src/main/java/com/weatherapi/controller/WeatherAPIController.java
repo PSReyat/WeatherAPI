@@ -26,14 +26,14 @@ public class WeatherAPIController {
 		
 	}
 	
-	@GetMapping("/{city}")
-	public String getCurrentWeatherDataForCity(@PathVariable String city, Model model) throws IOException {
+	@GetMapping("/weather/{city}")
+	public String getCurrentWeatherDataForCity(@PathVariable @RequestParam String city, Model model) throws IOException {
 		
 		return this.wService.getWeatherDataCity(city);
 		
 	}
 	
-	@GetMapping("/{city}/{country}")
+	@GetMapping("/weather/{city}/{country}")
 	public String getCurrentWeatherDataForCityAndCountry(@PathVariable @RequestParam String city, @PathVariable @RequestParam String country) throws IOException {
 		
 		return this.wService.getWeatherDataCityCountry(city, country);

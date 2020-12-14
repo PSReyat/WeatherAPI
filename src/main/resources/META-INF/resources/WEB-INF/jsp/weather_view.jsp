@@ -14,17 +14,19 @@ crossorigin="anonymous">
 </head>
 <body>
 
-	<div class = "card" align = "center">
+	<div class = "card-body" align = "center">
 	
-		<h3>Weather API: Get the current weather for your city.</h3>
+		<h3>Weather API: Get the current weather for your city.</h3><br/>
 	
-		<form action = "/" method = "GET">
-			<input type = "text" placeholder = "Your city" required/><br/>
-			<input type = "text" placeholder = "Your countries ISO code"/><br/>
-			<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
-		</form>
-		
-		
+		<div class = "col-4">
+			
+			<form action = "/weather" method = "GET">
+				<input class = "form-control" type = "text" placeholder = "Your city" required/><br/>
+				<input class = "form-control" type = "text" placeholder = "Your country's ISO code (not required)"/><br/>
+				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
+			</form>
+			
+		</div>
 	
 	</div>
 

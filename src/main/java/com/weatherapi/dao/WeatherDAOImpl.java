@@ -32,7 +32,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		Request request = new Request.Builder()
 			.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city)
 			.get()
-			.addHeader("x-rapidapi-key", "[OMITTED")
+			.addHeader("x-rapidapi-key", "[OMITTED]")
 			.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
 			.build();
 
@@ -50,6 +50,8 @@ public class WeatherDAOImpl implements WeatherDAO{
 			.addHeader("x-rapidapi-key", "[OMITTED]")
 			.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
 			.build();
+		
+		System.out.println(city + " " + country);
 
 		return getResponse(client, request);
 		
