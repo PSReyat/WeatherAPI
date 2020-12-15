@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -20,9 +21,9 @@ crossorigin="anonymous">
 	
 		<div class = "col-4">
 			
-			<form action = "/weather" method = "GET">
-				<input class = "form-control" type = "text" placeholder = "Your city" required/><br/>
-				<input class = "form-control" type = "text" placeholder = "Your country's ISO code (not required)"/><br/>
+			<form action = "/weather" method = "get">
+				<input class = "form-control" name = "city" type = "text"  placeholder = "Your city" required/><br/>
+				<input class = "form-control" name = "country" type = "text" placeholder = "Your country's ISO code (not required)"/><br/>
 				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
 			</form>
 			

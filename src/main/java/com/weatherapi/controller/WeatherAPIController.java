@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,22 +20,38 @@ public class WeatherAPIController {
 	
 	@RequestMapping("/")
 	public String getWeatherView() {
+	
+		System.out.println("Weather View");
 		
 		return "weather_view";
 		
 	}
 	
 	@GetMapping("/weather/{city}")
-	public String getCurrentWeatherDataForCity(@PathVariable @RequestParam String city, Model model) throws IOException {
+	public String getCurrentWeatherDataForCity(@PathVariable @RequestParam("city") String city) throws IOException {
 		
-		return this.wService.getWeatherDataCity(city);
+		System.out.println("First mapping activated.");
+		
+		System.out.println(city);
+		
+		this.wService.getWeatherDataCity(city);
+		
+		return "weather_for_city";
 		
 	}
 	
 	@GetMapping("/weather/{city}/{country}")
-	public String getCurrentWeatherDataForCityAndCountry(@PathVariable @RequestParam String city, @PathVariable @RequestParam String country) throws IOException {
+	public String getCurrentWeatherDataForCityAndCountry(
+			@PathVariable @RequestParam("city") String city, 
+			@PathVariable @RequestParam("country") String country) throws IOException {
 		
-		return this.wService.getWeatherDataCityCountry(city, country);
+		System.out.println("Second mapping activated.");
+		
+		System.out.println(city + " " + country);
+		
+		this.wService.getWeatherDataCityCountry(city, country);
+		
+		return "weather_for_city";
 		
 	}
 	

@@ -1,4 +1,4 @@
-package com.weatherapi.entity;
+package com.weatherapi.model;
 
 public class Weather {
 
