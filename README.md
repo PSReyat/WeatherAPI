@@ -11,9 +11,11 @@ Currently working on it. I will update the README when I have completed it and p
 - [ ] Add a list of ISO codes for countries on the weather_view jsp page
 ## Updates
 - Added JSP pages
+
 14/12/2020
 - Added JSP pages
 - updated entity class
+
 15/12/2020
 - Updated entity class to model
 - edited JSP pages
