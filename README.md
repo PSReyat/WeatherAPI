@@ -8,3 +8,6 @@ Currently working on it. I will update the README when I have completed it and p
 14/12/2020
 - Added JSP pages
 - updated entity class
+15/12/2020
+- Updated entity class to model
+- edited JSP pages
