@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,12 +26,8 @@ public class WeatherAPIController {
 		
 	}
 	
-	@GetMapping("/weather/{city}")
-	public String getCurrentWeatherDataForCity(@PathVariable @RequestParam("city") String city) throws IOException {
-		
-		System.out.println("First mapping activated.");
-		
-		System.out.println(city);
+	@GetMapping("/weather/stuff")
+	public String getCurrentWeatherDataForCity(@RequestParam("city") String city) throws IOException {
 		
 		this.wService.getWeatherDataCity(city);
 		
@@ -40,14 +35,10 @@ public class WeatherAPIController {
 		
 	}
 	
-	@GetMapping("/weather/{city}/{country}")
+	@GetMapping("/weather")
 	public String getCurrentWeatherDataForCityAndCountry(
-			@PathVariable @RequestParam("city") String city, 
-			@PathVariable @RequestParam("country") String country) throws IOException {
-		
-		System.out.println("Second mapping activated.");
-		
-		System.out.println(city + " " + country);
+			@RequestParam("city") String city, 
+			@RequestParam("country") String country) throws IOException {
 		
 		this.wService.getWeatherDataCityCountry(city, country);
 		

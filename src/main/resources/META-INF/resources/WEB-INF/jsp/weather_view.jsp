@@ -21,7 +21,7 @@ crossorigin="anonymous">
 	
 		<div class = "col-4">
 			
-			<form action = "/weather" method = "get">
+			<form action = "weather" method = "get">
 				<input class = "form-control" name = "city" type = "text"  placeholder = "Your city" required/><br/>
 				<input class = "form-control" name = "country" type = "text" placeholder = "Your country's ISO code (not required)"/><br/>
 				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>

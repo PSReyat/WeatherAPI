@@ -23,5 +23,11 @@ public class CountryCodes {
 		return this.countries.get(country);
 		
 	}
+	
+	public Map<String, String> getAllCountryCodes(){
+		
+		return this.countries;
+		
+	}
 
 }
