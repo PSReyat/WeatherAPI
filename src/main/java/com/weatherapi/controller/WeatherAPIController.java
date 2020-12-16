@@ -4,10 +4,13 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.weatherapi.countrycodes.CountryCodes;
+import com.weatherapi.model.Weather;
 import com.weatherapi.service.WeatherService;
 
 @Controller
@@ -18,29 +21,28 @@ public class WeatherAPIController {
 	WeatherService wService;
 	
 	@RequestMapping("/")
-	public String getWeatherView() {
-	
-		System.out.println("Weather View");
+	public String getWeatherView(Model model, CountryCodes codes) {
+		
+		model.addAttribute("codes", codes.getAllCountryCodes());
 		
 		return "weather_view";
-		
-	}
-	
-	@GetMapping("/weather/stuff")
-	public String getCurrentWeatherDataForCity(@RequestParam("city") String city) throws IOException {
-		
-		this.wService.getWeatherDataCity(city);
-		
-		return "weather_for_city";
 		
 	}
 	
 	@GetMapping("/weather")
 	public String getCurrentWeatherDataForCityAndCountry(
 			@RequestParam("city") String city, 
-			@RequestParam("country") String country) throws IOException {
+			@RequestParam("country") String country, Model model, Weather weather) throws IOException {
 		
-		this.wService.getWeatherDataCityCountry(city, country);
+		if(country.isEmpty()) {
+			
+			weather = this.wService.getWeatherDataCity(city);
+			
+		}else {
+			
+			weather = this.wService.getWeatherDataCityCountry(city, country);
+			
+		}
 		
 		return "weather_for_city";
 		

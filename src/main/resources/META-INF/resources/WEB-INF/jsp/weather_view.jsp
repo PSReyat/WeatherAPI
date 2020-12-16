@@ -27,8 +27,38 @@ crossorigin="anonymous">
 				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
 			</form>
 			
-		</div>
+		</div><br/>
 	
+		<table class = "table table-striped table-sm">
+			
+			<thead style = "background-color: #000000; color: #ffffff">
+				<tr>
+					<td>
+						Country
+					</td>
+					<td>
+						ISO Code
+					</td>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<c:forEach items="${codes}" var="list">
+					
+					<tr>
+						<td>
+							${list.key}
+						</td>
+						<td>
+							${list.value}
+						</td>
+					</tr>
+					
+				</c:forEach>
+			</tbody>
+			
+		</table>
+		
 	</div>
 
 </body>

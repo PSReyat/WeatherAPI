@@ -13,8 +13,7 @@ public class Weather {
 	private String pressure;
 	private String humidity;
 
-	public Weather() {
-	}
+	public Weather() {}
 
 	public String getCity() {
 		return city;
