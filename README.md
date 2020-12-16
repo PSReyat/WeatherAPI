@@ -9,6 +9,8 @@ Currently working on it. I will update the README when I have completed it and p
 - [ ] Add 5 day forecast endpoint
 - [ ] Add historical 5 day forecast endpoint
 - [ ] Add a list of ISO codes for countries on the weather_view jsp page
+- [ ] Add JavaScript functionality to ISO code table. Make it so that they are all buttons and clicking on one automatically fills the ISO code search text box.
+- [ ] Make the ISO code table smaller and searchable.
 ## Updates
 - Added JSP pages
 
