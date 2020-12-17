@@ -21,3 +21,7 @@ Currently working on it. I will update the README when I have completed it and p
 15/12/2020
 - Updated entity class to model
 - edited JSP pages
+
+16/12/2020
+- Updated JSP page and added list of ISO country codes.
+- Edited WeatherController class.
