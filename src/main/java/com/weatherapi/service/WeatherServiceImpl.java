@@ -19,39 +19,56 @@ public class WeatherServiceImpl implements WeatherService{
 	private Weather weather;
 
 	@Override
-	public Weather getWeatherDataCity(String city) throws IOException {
-
-		return jsonParseCityWeather(city);
+	public Weather getWeatherDataCity(String city, String country) throws IOException {
 		
-	}
-
-	@Override
-	public Weather getWeatherDataCityCountry(String city, String country) throws IOException {
-
-		return jsonParseISOCityWeather(city, country);
+		return jsonParseCityWeather(city, country);
 		
 	}
 	
-	public Weather jsonParseCityWeather(String city) throws IOException {
+	//Retrieves weather data in JSON format and assigns it to a String object.
+	public Weather jsonParseCityWeather(String city, String country) throws IOException {
 		
-		this.json = this.wDAO.getWeatherDataCity(city);
-		JSONObject obj = new JSONObject(this.json);
-		this.weather.setCity(obj.getString("name"));
+		this.json = this.wDAO.getWeatherDataCity(city, country);
+		setWeatherParameters();
 		
 		return this.weather;
 		
 	}
 	
-	public Weather jsonParseISOCityWeather(String city, String country) throws IOException {
+	//Parses the JSONOBject and retrieves the necessary data.
+	public void setWeatherParameters() {
 		
-		this.json = this.wDAO.getWeatherDataCityCountry(city, country);
+		//Parsing JSON object and retrieving relevant information.
 		JSONObject obj = new JSONObject(this.json);
 		
+		String name = obj.getString("name");
+		String country = obj.getJSONObject("sys").getString("country");
+		double humidity = obj.getJSONObject("main").getInt("humidity");
+		double pressure = obj.getJSONObject("main").getInt("pressure");
+		double temperature = obj.getJSONObject("main").getDouble("temp");
+		double tempFeelsLike = obj.getJSONObject("main").getDouble("feels_like");
+		double tempMax = obj.getJSONObject("main").getDouble("temp_max");
+		double tempMin = obj.getJSONObject("main").getDouble("temp_min");
+		double timeZone = obj.getDouble("timezone");
+		String weather = obj.getJSONArray("weather").getJSONObject(0).getString("main");
+		String weatherDesc = obj.getJSONArray("weather").getJSONObject(0).getString("description");
 		
-		return this.weather;
+		//Creating the Weather object
+		this.weather = new Weather();
+		
+		//Setting the Weather object
+		this.weather.setCity(name);
+		this.weather.setCountry(country);
+		this.weather.setHumidity(humidity);
+		this.weather.setPressure(pressure);
+		this.weather.setTemperature(temperature);
+		this.weather.setTempFeelsLike(tempFeelsLike);
+		this.weather.setTempMax(tempMax);
+		this.weather.setTempMin(tempMin);
+		this.weather.setTimeZone(timeZone);
+		this.weather.setWeather(weather);
+		this.weather.setWeatherDesc(weatherDesc);
 		
 	}
-	
-	public 
 
 }

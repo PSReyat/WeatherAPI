@@ -4,16 +4,73 @@ public class Weather {
 
 	private String city;
 	private String country;
-	private String timeZone;
-	private String temperature;
+	private double timeZone;
+	private double temperature;
+	private String weather;
 	private String weatherDesc;
-	private String tempFeelsLike;
-	private String tempMin;
-	private String tempMax;
-	private String pressure;
-	private String humidity;
+	private double tempFeelsLike;
+	private double tempMin;
+	private double tempMax;
+	private double pressure;
+	private double humidity;
 
 	public Weather() {}
+	
+	public double getTimeZone() {
+		return timeZone;
+	}
+
+	public void setTimeZone(double timeZone) {
+		this.timeZone = timeZone;
+	}
+
+	public double getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(double temperature) {
+		this.temperature = temperature;
+	}
+
+	public double getTempFeelsLike() {
+		return tempFeelsLike;
+	}
+
+	public void setTempFeelsLike(double tempFeelsLike) {
+		this.tempFeelsLike = tempFeelsLike;
+	}
+
+	public double getTempMin() {
+		return tempMin;
+	}
+
+	public void setTempMin(double tempMin) {
+		this.tempMin = tempMin;
+	}
+
+	public double getTempMax() {
+		return tempMax;
+	}
+
+	public void setTempMax(double tempMax) {
+		this.tempMax = tempMax;
+	}
+
+	public double getPressure() {
+		return pressure;
+	}
+
+	public void setPressure(double pressure) {
+		this.pressure = pressure;
+	}
+
+	public double getHumidity() {
+		return humidity;
+	}
+
+	public void setHumidity(double humidity) {
+		this.humidity = humidity;
+	}
 
 	public String getCity() {
 		return city;
@@ -30,21 +87,13 @@ public class Weather {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-	public String getTimeZone() {
-		return timeZone;
+	
+	public String getWeather() {
+		return weather;
 	}
 
-	public void setTimeZone(String timeZone) {
-		this.timeZone = timeZone;
-	}
-
-	public String getTemperature() {
-		return temperature;
-	}
-
-	public void setTemperature(String temperature) {
-		this.temperature = temperature;
+	public void setWeather(String weather) {
+		this.weather = weather;
 	}
 
 	public String getWeatherDesc() {
@@ -53,46 +102,6 @@ public class Weather {
 
 	public void setWeatherDesc(String weatherDesc) {
 		this.weatherDesc = weatherDesc;
-	}
-
-	public String getTempFeelsLike() {
-		return tempFeelsLike;
-	}
-
-	public void setTempFeelsLike(String tempFeelsLike) {
-		this.tempFeelsLike = tempFeelsLike;
-	}
-
-	public String getTempMin() {
-		return tempMin;
-	}
-
-	public void setTempMin(String tempMin) {
-		this.tempMin = tempMin;
-	}
-
-	public String getTempMax() {
-		return tempMax;
-	}
-
-	public void setTempMax(String tempMax) {
-		this.tempMax = tempMax;
-	}
-
-	public String getPressure() {
-		return pressure;
-	}
-
-	public void setPressure(String pressure) {
-		this.pressure = pressure;
-	}
-
-	public String getHumidity() {
-		return humidity;
-	}
-
-	public void setHumidity(String humidity) {
-		this.humidity = humidity;
 	}
 
 }

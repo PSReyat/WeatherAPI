@@ -12,44 +12,34 @@ import okhttp3.Response;
 public class WeatherDAOImpl implements WeatherDAO{
 
 	@Override
-	public String getWeatherDataCity(String city) throws IOException {
+	public String getWeatherDataCity(String city, String country) throws IOException {
 
-		return connectAPICity(city);
-		
-	}
-
-	@Override
-	public String getWeatherDataCityCountry(String city, String country) throws IOException {
-		
-		return connectAPICityAndCountry(city, country);
+		return connectAPICity(city, country);
 		
 	}
 	
-	public String connectAPICity(String city) throws IOException {
+	public String connectAPICity(String city, String country) throws IOException {
 		
 		OkHttpClient client = new OkHttpClient();
-
-		Request request = new Request.Builder()
-			.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city)
-			.get()
-			.addHeader("x-rapidapi-key", "[OMITTED]")
-			.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
-			.build();
-
-		return getResponse(client, request);
+		Request request;
 		
-	}
-	
-	public String connectAPICityAndCountry(String city, String country) throws IOException {
-		
-		OkHttpClient client = new OkHttpClient();
+		if(country.isEmpty()) {
+			request = new Request.Builder()
+				.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city)
+				.get()
+				.addHeader("x-rapidapi-key", "2e0f5e5587msh5b20c6d40614898p14e8aejsn9eec5fb064d8")
+				.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
+				.build();
+		}else {
+			request = new Request.Builder()
+				.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city + "%2C" + country)
+				.get()
+				.addHeader("x-rapidapi-key", "2e0f5e5587msh5b20c6d40614898p14e8aejsn9eec5fb064d8")
+				.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
+				.build();
+		}
 
-		Request request = new Request.Builder()
-			.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city + "%2C" + country)
-			.get()
-			.addHeader("x-rapidapi-key", "[OMITTED]")
-			.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
-			.build();
+		
 
 		return getResponse(client, request);
 		

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Your city's weather information</title>
+<title>"${weather.city}"'s weather information</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
@@ -13,7 +13,8 @@ crossorigin="anonymous">
 </head>
 <body>
 
-	<h1>Your cities weather</h1>
+	<h1>"${weather.city}"'s weather</h1>
+	<h1>Weather: "${weather.weather}"</h1>
 
 </body>
 </html>

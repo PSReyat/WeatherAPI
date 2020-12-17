@@ -20,6 +20,7 @@ public class WeatherAPIController {
 	@Autowired
 	WeatherService wService;
 	
+	//Sets the search page and loads the ISO codes table.
 	@RequestMapping("/")
 	public String getWeatherView(Model model, CountryCodes codes) {
 		
@@ -29,20 +30,15 @@ public class WeatherAPIController {
 		
 	}
 	
+	//Allows you to search for weather in city + country (ISO) or just city alone.
 	@GetMapping("/weather")
 	public String getCurrentWeatherDataForCityAndCountry(
 			@RequestParam("city") String city, 
 			@RequestParam("country") String country, Model model, Weather weather) throws IOException {
 		
-		if(country.isEmpty()) {
-			
-			weather = this.wService.getWeatherDataCity(city);
-			
-		}else {
-			
-			weather = this.wService.getWeatherDataCityCountry(city, country);
-			
-		}
+		weather = this.wService.getWeatherDataCity(city, country);
+		
+		model.addAttribute("weather", weather);
 		
 		return "weather_for_city";
 		
