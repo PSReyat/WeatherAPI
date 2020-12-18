@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 public class Weather {
 	
 	private static final Double ABSOLUTE_TEMPERATURE_CONSTANT = 273.15;
+	private static final Integer CONVERT_SECONDS_TO_HOURS = 3600;
 	
 	private DecimalFormat df;
 
@@ -23,9 +24,8 @@ public class Weather {
 	private double humidity;
 
 	public Weather() {
-		this.df = new DecimalFormat();
-		this.df.setRoundingMode(RoundingMode.FLOOR);
-		this.df.setMaximumFractionDigits(2);
+		this.df = new DecimalFormat("#.00");
+		this.df.setRoundingMode(RoundingMode.CEILING);
 	}
 	
 	public String getCountry() {
@@ -41,7 +41,7 @@ public class Weather {
 	}
 
 	public void setTimeZone(double timeZone) {
-		this.timeZone = timeZone;
+		this.timeZone = timeZone/CONVERT_SECONDS_TO_HOURS;
 	}
 
 	public double getTemperature() {
@@ -50,7 +50,7 @@ public class Weather {
 	}
 
 	public void setTemperature(double temperature) {
-		this.temperature = temperature - ABSOLUTE_TEMPERATURE_CONSTANT;
+		this.temperature = Double.parseDouble(String.format("%.2f", temperature - ABSOLUTE_TEMPERATURE_CONSTANT));
 	}
 
 	public double getTempFeelsLike() {
@@ -59,7 +59,7 @@ public class Weather {
 	}
 
 	public void setTempFeelsLike(double tempFeelsLike) {
-		this.tempFeelsLike = tempFeelsLike - ABSOLUTE_TEMPERATURE_CONSTANT;
+		this.tempFeelsLike = Double.parseDouble(String.format("%.2f", tempFeelsLike - ABSOLUTE_TEMPERATURE_CONSTANT));
 	}
 
 	public double getTempMin() {
@@ -68,7 +68,7 @@ public class Weather {
 	}
 
 	public void setTempMin(double tempMin) {
-		this.tempMin = tempMin - ABSOLUTE_TEMPERATURE_CONSTANT;
+		this.tempMin = Double.parseDouble(String.format("%.2f", tempMin - ABSOLUTE_TEMPERATURE_CONSTANT));
 	}
 
 	public double getTempMax() {
@@ -77,7 +77,7 @@ public class Weather {
 	}
 
 	public void setTempMax(double tempMax) {
-		this.tempMax = tempMax - ABSOLUTE_TEMPERATURE_CONSTANT;
+		this.tempMax = Double.parseDouble(String.format("%.2f", tempMax - ABSOLUTE_TEMPERATURE_CONSTANT));
 	}
 
 	public double getPressure() {

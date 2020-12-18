@@ -29,7 +29,7 @@ crossorigin="anonymous">
 					Country (ISO code)
 				</td>
 				<td>
-					Time zone (seconds)
+					Time zone (Hours)
 				</td>
 				<td>
 					Temperature (&#176;C)
