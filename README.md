@@ -31,3 +31,4 @@ Currently working on it. I will update the README when I have completed it and p
 
 18/12/2020
 - Added weather information on weather_for_city jsp page.
+- Updated Weather model
