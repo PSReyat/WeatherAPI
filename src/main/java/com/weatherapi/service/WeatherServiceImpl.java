@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.weatherapi.countrycodes.CountryCodes;
 import com.weatherapi.dao.WeatherDAO;
 import com.weatherapi.model.Weather;
 
@@ -41,7 +42,7 @@ public class WeatherServiceImpl implements WeatherService{
 		//Parsing JSON object and retrieving relevant information.
 		JSONObject obj = new JSONObject(this.json);
 		
-		String name = obj.getString("name");
+		String name = obj.getString("name").toString();
 		String country = obj.getJSONObject("sys").getString("country");
 		double humidity = obj.getJSONObject("main").getInt("humidity");
 		double pressure = obj.getJSONObject("main").getInt("pressure");
@@ -58,7 +59,8 @@ public class WeatherServiceImpl implements WeatherService{
 		
 		//Setting the Weather object
 		this.weather.setCity(name);
-		this.weather.setCountry(country);
+		this.weather.setCountry(new CountryCodes().getCountry(country));
+		this.weather.setCountryISOCode(country);
 		this.weather.setHumidity(humidity);
 		this.weather.setPressure(pressure);
 		this.weather.setTemperature(temperature);

@@ -34,7 +34,9 @@ public class WeatherAPIController {
 	@GetMapping("/weather")
 	public String getCurrentWeatherDataForCityAndCountry(
 			@RequestParam("city") String city, 
-			@RequestParam("country") String country, Model model, Weather weather) throws IOException {
+			@RequestParam("country") String country, Model model) throws IOException {
+		
+		Weather weather = new Weather();
 		
 		weather = this.wService.getWeatherDataCity(city, country);
 		

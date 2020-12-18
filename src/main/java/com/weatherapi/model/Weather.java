@@ -1,9 +1,17 @@
 package com.weatherapi.model;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Weather {
+	
+	private static final Double ABSOLUTE_TEMPERATURE_CONSTANT = 273.15;
+	
+	private DecimalFormat df;
 
 	private String city;
 	private String country;
+	private String countryISOCode;
 	private double timeZone;
 	private double temperature;
 	private String weather;
@@ -14,7 +22,19 @@ public class Weather {
 	private double pressure;
 	private double humidity;
 
-	public Weather() {}
+	public Weather() {
+		this.df = new DecimalFormat();
+		this.df.setRoundingMode(RoundingMode.FLOOR);
+		this.df.setMaximumFractionDigits(2);
+	}
+	
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
 	
 	public double getTimeZone() {
 		return timeZone;
@@ -25,35 +45,39 @@ public class Weather {
 	}
 
 	public double getTemperature() {
+		this.df.format(this.temperature);
 		return temperature;
 	}
 
 	public void setTemperature(double temperature) {
-		this.temperature = temperature;
+		this.temperature = temperature - ABSOLUTE_TEMPERATURE_CONSTANT;
 	}
 
 	public double getTempFeelsLike() {
+		this.df.format(this.tempFeelsLike);
 		return tempFeelsLike;
 	}
 
 	public void setTempFeelsLike(double tempFeelsLike) {
-		this.tempFeelsLike = tempFeelsLike;
+		this.tempFeelsLike = tempFeelsLike - ABSOLUTE_TEMPERATURE_CONSTANT;
 	}
 
 	public double getTempMin() {
+		this.df.format(this.tempMin);
 		return tempMin;
 	}
 
 	public void setTempMin(double tempMin) {
-		this.tempMin = tempMin;
+		this.tempMin = tempMin - ABSOLUTE_TEMPERATURE_CONSTANT;
 	}
 
 	public double getTempMax() {
+		this.df.format(this.tempMax);
 		return tempMax;
 	}
 
 	public void setTempMax(double tempMax) {
-		this.tempMax = tempMax;
+		this.tempMax = tempMax - ABSOLUTE_TEMPERATURE_CONSTANT;
 	}
 
 	public double getPressure() {
@@ -80,12 +104,12 @@ public class Weather {
 		this.city = city;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getCountryISOCode() {
+		return countryISOCode;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setCountryISOCode(String country) {
+		this.countryISOCode = country;
 	}
 	
 	public String getWeather() {

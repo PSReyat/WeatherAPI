@@ -24,6 +24,24 @@ public class CountryCodes {
 		
 	}
 	
+	public String getCountry(String countryCode) {
+		
+		String country = "";
+		
+		for(String get : this.countries.keySet()) {
+			
+			if(this.countries.get(get).equals(countryCode)) {
+				
+				country = get;
+				
+			}
+			
+		}
+		
+		return country;
+		
+	}
+	
 	public Map<String, String> getAllCountryCodes(){
 		
 		return this.countries;
