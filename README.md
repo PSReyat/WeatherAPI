@@ -4,11 +4,11 @@ An API I've created to find out the current weather for a given location
 - In progress
 Currently working on it. I will update the README when I have completed it and provide proper information on the application.
 ## To-do list
-- [ ] Update the weather_for_city jsp page. 
-- [ ] Add Model objects to controller to display objects to the view.
+- [x] Update the weather_for_city jsp page. 
+- [x] Add Model objects to controller to display objects to the view.
 - [ ] Add 5 day forecast endpoint
 - [ ] Add historical 5 day forecast endpoint
-- [ ] Add a list of ISO codes for countries on the weather_view jsp page
+- [x] Add a list of ISO codes for countries on the weather_view jsp page
 - [ ] Add JavaScript functionality to ISO code table. Make it so that they are all buttons and clicking on one automatically fills the ISO code search text box.
 - [ ] Make the ISO code table smaller and searchable.
 ## Updates
@@ -28,3 +28,6 @@ Currently working on it. I will update the README when I have completed it and p
 
 17/12/2020
 - Parsed JSON response and extracted out the necessary information to display on JSP page.
+
+18/12/2020
+- Added weather information on weather_for_city jsp page.
