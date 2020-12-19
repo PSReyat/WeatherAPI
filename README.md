@@ -11,6 +11,7 @@ Currently working on it. I will update the README when I have completed it and p
 - [ ] Add JavaScript functionality to ISO code table. Make it so that they are all buttons and clicking on one automatically fills the ISO code search text box.
 - [x] Make the ISO code table smaller 
 - [ ] Make ISO code table searchable.
+- [ ] Make 5 day forecast clickable and displayable.
 ## Updates
 - Added JSP pages
 
