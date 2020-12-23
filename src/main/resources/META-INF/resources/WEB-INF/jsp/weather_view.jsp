@@ -18,6 +18,7 @@ crossorigin="anonymous">
 	<div class = "card-body" align = "center">
 	
 		<h3>Weather API: Get the current weather for your city.</h3><br/>
+		<script src = "testmessage.js"></script>
 	
 		<div class = "col-4">
 			
@@ -26,6 +27,10 @@ crossorigin="anonymous">
 				<input class = "form-control" name = "country" type = "text" placeholder = "Your country's ISO code (not required)"/><br/>
 				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
 			</form>
+			<!-- Error message displayed if wrong combination is searched. Will try to replace this with a JavaScript alternative. -->
+			<c:if test = "${error}">
+				<p class = "Error" style = "color: #ff0000;">That city and ISO code (country) combination don't match!</p>
+			</c:if>
 			
 		</div><br/>
 	

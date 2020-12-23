@@ -40,9 +40,15 @@ public class WeatherAPIController {
 		
 		weather = this.wService.getWeatherDataCity(city, country);
 		
-		model.addAttribute("weather", weather);
+		if(weather != null) {
+			model.addAttribute("weather", weather);
+			
+			return "weather_for_city";
+		}else {
+			model.addAttribute("error", true);
+		}
 		
-		return "weather_for_city";
+		return "weather_view";
 		
 	}
 	

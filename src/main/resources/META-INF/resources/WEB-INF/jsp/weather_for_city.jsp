@@ -96,6 +96,60 @@ crossorigin="anonymous">
 		</tbody>
 	
 	</table>
+	
+	<br/><br/>
+	
+	<table class = "table table-sm table-striped">
+	
+		<thead><tr><td style = "background-color: #bdbd4f">${weather.city}'s current weather</td></tr></thead>
+		
+		<tbody>
+			
+			<tr style = "background-color: #000000; color: #ffffff;">
+				<td>
+				</td>
+				<td>
+					Monday
+				</td>
+				<td>
+					Tuesday
+				</td>
+				<td>
+					Wednesday
+				</td>
+				<td>
+					Thursday
+				</td>
+				<td>
+					Friday
+				</td>
+				<td>
+					Saturday
+				</td>
+				<td>
+					Sunday
+				</td>
+			</tr>
+			
+			<tr style = "background-color: #000000; color: #ffffff;">
+				<td>
+					Temperature
+				</td>
+			</tr>
+			<tr style = "background-color: #000000; color: #ffffff;">
+				<td>
+					Weather
+				</td>
+			</tr>
+			<tr style = "background-color: #000000; color: #ffffff;">
+				<td>
+					Weather Description
+				</td>
+			</tr>
+			
+		</tbody>
+	
+	</table>
 		
 	</div>
 

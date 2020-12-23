@@ -39,9 +39,32 @@ public class WeatherDAOImpl implements WeatherDAO{
 				.build();
 		}
 
-		
-
 		return getResponse(client, request);
+		
+	}
+	
+	public String connectFiveDayForecast(String city, String country) throws IOException {
+		
+		OkHttpClient client = new OkHttpClient();
+
+		Request request = new Request.Builder()
+			.url("https://community-open-weather-map.p.rapidapi.com/forecast?q=" + city + "%2C%20" + country)
+			.get()
+			.addHeader("x-rapidapi-key", "[OMITTED]")
+			.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
+			.build();
+
+		return getFiveDayResponse(client, request);
+		
+	}
+	
+	public String getFiveDayResponse(OkHttpClient client, Request request) throws IOException {
+		
+		Response response = client.newCall(request).execute();
+		
+		String getResponseBody = response.body().string();
+		
+		return getResponseBody;
 		
 	}
 	
