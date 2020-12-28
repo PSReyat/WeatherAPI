@@ -37,7 +37,6 @@ public class WeatherAPIController {
 			@RequestParam("country") String country, Model model) throws IOException {
 		
 		Weather weather = new Weather();
-		
 		weather = this.wService.getWeatherDataCity(city, country);
 		
 		if(weather != null) {
@@ -49,6 +48,13 @@ public class WeatherAPIController {
 		}
 		
 		return "weather_view";
+		
+	}
+	
+	@GetMapping("/weather/five_day_forecast")
+	public String getFiveDayForecast() {
+		
+		return "five_day_forecast";
 		
 	}
 	

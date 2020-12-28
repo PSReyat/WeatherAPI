@@ -10,147 +10,95 @@
 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 crossorigin="anonymous">
 
+<script src = "src/main/resources/static/js/testmessage.js"></script>
+
 </head>
 <body>
 
-	<div class = "card-body">
+	<div id = "div1" class = "card-body">
 	
 		<table class = "table table-sm table-striped">
 		
-		<thead><tr><td style = "background-color: #bdbd4f">${weather.city}'s current weather</td></tr></thead>
-		
-		<tbody>
-		
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-					Country 
-				</td>
-				<td>
-					Country (ISO code)
-				</td>
-				<td>
-					Time zone (Hours)
-				</td>
-				<td>
-					Temperature (&#176;C)
-				</td>
-				<td>
-					Feels like (&#176;C)
-				</td>
-				<td>
-					Minimum temperature (&#176;C)
-				</td>
-				<td>
-					Maximum temperature (&#176;C)
-				</td>
-				<td>
-					Weather
-				</td>
-				<td>
-					Weather description
-				</td>
-				<td>
-					Pressure
-				</td>
-				<td>
-					Humidity
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					${weather.country}
-				</td>
-				<td>
-					${weather.countryISOCode}
-				</td>
-				<td>
-					${weather.timeZone}
-				</td>
-				<td>
-					${weather.temperature}
-				</td>
-				<td>
-					${weather.tempFeelsLike}
-				</td>
-				<td>
-					${weather.tempMin}
-				</td>
-				<td>
-					${weather.tempMax}
-				</td>
-				<td>
-					${weather.weather}
-				</td>
-				<td>
-					${weather.weatherDesc}
-				</td>
-				<td>
-					${weather.pressure}
-				</td>
-				<td>
-					${weather.humidity}
-				</td>
-			</tr>
+			<thead><tr><td style = "background-color: #bdbd4f">${weather.city}'s current weather</td></tr></thead>
 			
-		</tbody>
-	
-	</table>
-	
-	<br/><br/>
-	
-	<table class = "table table-sm table-striped">
-	
-		<thead><tr><td style = "background-color: #bdbd4f">${weather.city}'s current weather</td></tr></thead>
+			<tbody>
+			
+				<tr style = "background-color: #000000; color: #ffffff;">
+					<td>
+						Country 
+					</td>
+					<td>
+						Country (ISO code)
+					</td>
+					<td>
+						Time zone (Hours)
+					</td>
+					<td>
+						Temperature (&#176;C)
+					</td>
+					<td>
+						Feels like (&#176;C)
+					</td>
+					<td>
+						Minimum temperature (&#176;C)
+					</td>
+					<td>
+						Maximum temperature (&#176;C)
+					</td>
+					<td>
+						Weather
+					</td>
+					<td>
+						Weather description
+					</td>
+					<td>
+						Pressure
+					</td>
+					<td>
+						Humidity
+					</td>
+				</tr>
+			
+				<tr>
+					<td>
+						${weather.country}
+					</td>
+					<td>
+						${weather.countryISOCode}
+					</td>
+					<td>
+						${weather.timeZone}
+					</td>
+					<td>
+						${weather.temperature}
+					</td>
+					<td>
+						${weather.tempFeelsLike}
+					</td>
+					<td>
+						${weather.tempMin}
+					</td>
+					<td>
+						${weather.tempMax}
+					</td>
+					<td>
+						${weather.weather}
+					</td>
+					<td>
+						${weather.weatherDesc}
+					</td>
+					<td>
+						${weather.pressure}
+					</td>
+					<td>
+						${weather.humidity}
+					</td>
+				</tr>
+				
+			</tbody>
 		
-		<tbody>
-			
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-				</td>
-				<td>
-					Monday
-				</td>
-				<td>
-					Tuesday
-				</td>
-				<td>
-					Wednesday
-				</td>
-				<td>
-					Thursday
-				</td>
-				<td>
-					Friday
-				</td>
-				<td>
-					Saturday
-				</td>
-				<td>
-					Sunday
-				</td>
-			</tr>
-			
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-					Temperature
-				</td>
-			</tr>
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-					Weather
-				</td>
-			</tr>
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-					Weather Description
-				</td>
-			</tr>
-			
-		</tbody>
+		</table>
 	
-	</table>
-		
 	</div>
 
 </body>

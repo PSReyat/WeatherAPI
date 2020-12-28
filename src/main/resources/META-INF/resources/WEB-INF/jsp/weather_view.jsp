@@ -18,7 +18,6 @@ crossorigin="anonymous">
 	<div class = "card-body" align = "center">
 	
 		<h3>Weather API: Get the current weather for your city.</h3><br/>
-		<script src = "testmessage.js"></script>
 	
 		<div class = "col-4">
 			
