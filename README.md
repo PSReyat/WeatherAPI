@@ -33,3 +33,12 @@ Currently working on it. I will update the README when I have completed it and p
 18/12/2020
 - Added weather information on weather_for_city jsp page.
 - Updated Weather model
+
+23/12/2020
+- Added request and response for a 5 day forecast.
+- Currently learning how to integrate JavaScript with Spring Boot in Eclipse.
+
+## Technologies used
+- Spring Boot
+- JSP pages
+- JavaScript
