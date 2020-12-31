@@ -10,12 +10,10 @@
 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 crossorigin="anonymous">
 
-<script src = "src/main/resources/static/js/testmessage.js"></script>
-
 </head>
 <body>
 
-	<div id = "div1" class = "card-body">
+	<div class = "card-body">
 	
 		<table class = "table table-sm table-striped">
 		

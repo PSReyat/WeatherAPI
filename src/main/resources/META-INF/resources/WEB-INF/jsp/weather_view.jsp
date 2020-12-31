@@ -15,7 +15,9 @@ crossorigin="anonymous">
 </head>
 <body>
 
-	<div class = "card-body" align = "center">
+	<!-- Search weather -->
+
+	<div id = "weather_search" class = "card-body" align = "center">
 	
 		<h3>Weather API: Get the current weather for your city.</h3><br/>
 	
@@ -23,13 +25,24 @@ crossorigin="anonymous">
 			
 			<form action = "weather" method = "get">
 				<input class = "form-control" name = "city" type = "text"  placeholder = "Your city" required/><br/>
-				<input class = "form-control" name = "country" type = "text" placeholder = "Your country's ISO code (not required)"/><br/>
+				<input class = "form-control" name = "country" type = "text" value = "" placeholder = "Your country's ISO code (not required)"/><br/>
 				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
 			</form>
-			<!-- Error message displayed if wrong combination is searched. Will try to replace this with a JavaScript alternative. -->
-			<c:if test = "${error}">
-				<p class = "Error" style = "color: #ff0000;">That city and ISO code (country) combination don't match!</p>
-			</c:if>
+			
+		</div>
+	
+	</div>
+	
+	<!-- ISO codes -->
+		
+	<div id = "iso_codes" class = "card-body" align = "center">
+	
+		<h3 style = "text-decoration: underline;">Countries and their ISO codes</h3>
+		
+		<div class = "col-4">
+		
+			<input class = "form-control" id = "iso" name = "iso" type = "text" placeholder = "Search your countries ISO code"/>
+			<button type = "submit" class = "btn btn-outline-success btn-sm" onclick = "scrollCountry()">Find ISO code</button>
 			
 		</div><br/>
 	
@@ -54,7 +67,7 @@ crossorigin="anonymous">
 							${list.key}
 						</td>
 						<td>
-							${list.value}
+							<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode()" value = "${list.value}">${list.value}</button>
 						</td>
 					</tr>
 					
@@ -64,6 +77,8 @@ crossorigin="anonymous">
 		</table>
 		
 	</div>
+	
+	<script src = "js/search-iso-codes.js"></script>
 
 </body>
 </html>
