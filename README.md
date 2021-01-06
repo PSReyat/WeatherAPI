@@ -19,5 +19,4 @@ Currently working on it. I will update the README when I have completed it and p
 - Java
 - JavaScript
 - HTML
-- CSS
 
