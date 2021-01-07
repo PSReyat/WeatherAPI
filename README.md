@@ -18,5 +18,3 @@ Currently working on it. I will update the README when I have completed it and p
 ## Languages
 - Java
 - JavaScript
-- HTML
-
