@@ -15,4 +15,6 @@ Currently working on it. I will update the README when I have completed it and p
 ## Technologies used
 - Spring Boot
 - JSP pages
+## Languages
+- Java
 - JavaScript
