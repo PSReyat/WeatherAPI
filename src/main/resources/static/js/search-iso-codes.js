@@ -11,8 +11,8 @@ function scrollCountry(){
 
 function addISOCode(){
 
-	document.getElementsByName("country").nodeValue = document.getElementById("iso").nodeValue;
+	let iso = document.getElementById("iso_code").textContent;
+	document.getElementsByName("country").setAttribute("value", "iso");
 	
-	console.log(document.getElementById("iso").nodeValue);
-	console.log(document.getElementsByName("country").nodeValue);
+	console.log(document.getElementById("iso_code").textContent);
 }
