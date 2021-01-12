@@ -12,7 +12,10 @@ function scrollCountry(){
 function addISOCode(){
 
 	let iso = document.getElementById("iso_code").textContent;
-	document.getElementsByName("country").setAttribute("value", "iso");
+	document.getElementsByName("country").innerHTML = iso;
+
+	document.getElementsByName("country").onfocus;
+
 	
 	console.log(document.getElementById("iso_code").textContent);
 }
