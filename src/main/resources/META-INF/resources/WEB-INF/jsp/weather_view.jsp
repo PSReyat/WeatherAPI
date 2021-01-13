@@ -67,7 +67,7 @@ crossorigin="anonymous">
 							${list.key}
 						</td>
 						<td>
-							<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode('${list.value}')">${list.value}</button>
+							<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode(${list.value})">${list.value}</button>
 						</td>
 					</tr>
 					
