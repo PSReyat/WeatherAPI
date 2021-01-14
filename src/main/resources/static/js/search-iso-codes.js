@@ -9,13 +9,10 @@ function scrollCountry(){
 
 }
 
-function addISOCode(){
+function addISOCode(country){
 
-	var iso = document.getElementById("iso_code").textContent;
-	document.getElementsByName("country").innerHTML = iso;
-
-	document.getElementsByName("country").focus;
-
+	//var iso = document.getElementById("iso_code").textContent;
+	document.getElementsByName("country").value = country;
 	
 	console.log(document.getElementById("iso_code").textContent);
 }

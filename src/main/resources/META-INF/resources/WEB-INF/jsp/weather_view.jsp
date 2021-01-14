@@ -8,6 +8,7 @@
 
 <title>Weather API!</title>
 
+<link rel = "stylesheet" href = "/css/scroll_behaviour.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 crossorigin="anonymous">
@@ -67,7 +68,9 @@ crossorigin="anonymous">
 							${list.key}
 						</td>
 						<td>
-							<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode(${list.value})">${list.value}</button>
+							<a href = "#weather_search">
+								<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode(${list.value})">${list.value}</button>
+							</a>
 						</td>
 					</tr>
 					
