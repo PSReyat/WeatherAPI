@@ -26,7 +26,7 @@ crossorigin="anonymous">
 			
 			<form action = "weather" method = "get">
 				<input class = "form-control" name = "city" type = "text"  placeholder = "Your city" required/><br/>
-				<input class = "form-control" name = "country" type = "text" value = "" placeholder = "Your country's ISO code (not required)"/><br/>
+				<input class = "form-control" id = "country" name = "country" type = "text" value = "" placeholder = "Your country's ISO code (not required)"/><br/>
 				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
 			</form>
 			
@@ -41,13 +41,6 @@ crossorigin="anonymous">
 		<h3 style = "text-decoration: underline;">Countries and their ISO codes</h3><br/>
 		
 		<p>To search for your country, hold 'Ctrl' and press 'F' and then enter your country</p>
-		
-		<!-- <div class = "col-4">
-		
-			<input class = "form-control" id = "iso" name = "iso" type = "text" placeholder = "Search your countries ISO code"/>
-			<button type = "submit" class = "btn btn-outline-success btn-sm" onclick = "scrollCountry()">Find ISO code</button>
-			
-		</div><br/> -->
 	
 		<table class = "table table-striped table-sm">
 			
@@ -71,7 +64,7 @@ crossorigin="anonymous">
 						</td>
 						<td>
 							<a href = "#weather_search">
-								<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode(this.value)">${list.value}</button>
+								<button id = "iso_code" class = "btn btn-outline-info btn-sm" value = "${list.value}" onclick = "addISOCode(value)">${list.value}</button>
 							</a>
 						</td>
 					</tr>
