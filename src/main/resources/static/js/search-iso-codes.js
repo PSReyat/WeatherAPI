@@ -4,7 +4,6 @@ function scrollCountry(){
 
 	console.log(searchTerm);
 
-	let element = document.get();
 	element.scrollIntoView();
 
 }
@@ -12,7 +11,9 @@ function scrollCountry(){
 function addISOCode(country){
 
 	//var iso = document.getElementById("iso_code").textContent;
-	document.getElementsByName("country").value = country;
+	var addCountry = document.getElementsByName("country")
+	addCountry.value = country.textContent;
 	
-	console.log(document.getElementById("iso_code").textContent);
+	console.log(addCountry);
+	console.log(country);
 }

@@ -38,14 +38,16 @@ crossorigin="anonymous">
 		
 	<div id = "iso_codes" class = "card-body" align = "center">
 	
-		<h3 style = "text-decoration: underline;">Countries and their ISO codes</h3>
+		<h3 style = "text-decoration: underline;">Countries and their ISO codes</h3><br/>
 		
-		<div class = "col-4">
+		<p>To search for your country, hold 'Ctrl' and press 'F' and then enter your country</p>
+		
+		<!-- <div class = "col-4">
 		
 			<input class = "form-control" id = "iso" name = "iso" type = "text" placeholder = "Search your countries ISO code"/>
 			<button type = "submit" class = "btn btn-outline-success btn-sm" onclick = "scrollCountry()">Find ISO code</button>
 			
-		</div><br/>
+		</div><br/> -->
 	
 		<table class = "table table-striped table-sm">
 			
@@ -69,7 +71,7 @@ crossorigin="anonymous">
 						</td>
 						<td>
 							<a href = "#weather_search">
-								<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode(${list.value})">${list.value}</button>
+								<button id = "iso_code" class = "btn btn-outline-info btn-sm" onclick = "addISOCode(this.value)">${list.value}</button>
 							</a>
 						</td>
 					</tr>
