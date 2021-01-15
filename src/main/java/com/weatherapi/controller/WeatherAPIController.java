@@ -31,10 +31,11 @@ public class WeatherAPIController {
 	}
 	
 	//Allows you to search for weather in city + country (ISO) or just city alone.
-	@GetMapping("/weather")
+	@GetMapping("/current/weather")
 	public String getCurrentWeatherDataForCityAndCountry(
 			@RequestParam("city") String city, 
-			@RequestParam("country") String country, Model model) throws IOException {
+			@RequestParam("country") String country, 
+			Model model) throws IOException {
 		
 		Weather weather = new Weather();
 		weather = this.wService.getWeatherDataCity(city, country);
@@ -51,8 +52,13 @@ public class WeatherAPIController {
 		
 	}
 	
-	@GetMapping("/weather/five_day_forecast")
-	public String getFiveDayForecast() {
+	@GetMapping("/five_day/weather")
+	public String getFiveDayForecast(
+			@RequestParam("city") String city, 
+			@RequestParam("country") String country, 
+			Model model) {
+		
+		model.addAttribute("")
 		
 		return "five_day_forecast";
 		

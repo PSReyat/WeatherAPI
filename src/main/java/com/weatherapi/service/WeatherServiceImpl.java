@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.weatherapi.countrycodes.CountryCodes;
 import com.weatherapi.dao.WeatherDAO;
+import com.weatherapi.model.FiveDayHourlyWeather;
 import com.weatherapi.model.Weather;
 
 @Service
@@ -18,11 +19,19 @@ public class WeatherServiceImpl implements WeatherService{
 	
 	private String json;
 	private Weather weather;
+	private FiveDayHourlyWeather hourlyWeather;
 
 	@Override
 	public Weather getWeatherDataCity(String city, String country) throws IOException {
 		
 		return jsonParseCityWeather(city, country);
+		
+	}
+	
+	public FiveDayHourlyWeather getHourlyWeather(String city, String country) throws IOException {
+		
+		
+		return jsonParseHourlyWeather(city, country);
 		
 	}
 	
@@ -33,6 +42,15 @@ public class WeatherServiceImpl implements WeatherService{
 		setWeatherParameters();
 		
 		return this.weather;
+		
+	}
+	
+	public FiveDayHourlyWeather jsonParseHourlyWeather(String city, String country) throws IOException {
+		
+		this.json = this.wDAO.getHourlyWeatherData(city, country);
+		setHourlyWeatherParameters();
+		
+		return this.hourlyWeather;
 		
 	}
 	
@@ -71,6 +89,24 @@ public class WeatherServiceImpl implements WeatherService{
 			this.weather.setTimeZone(timeZone);
 			this.weather.setWeather(weather);
 			this.weather.setWeatherDesc(weatherDesc);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void setHourlyWeatherParameters() {
+		
+		try {
+			
+			JSONObject obj = new JSONObject(this.json);
+			
+			String name = obj.getString("city").getString("name").toString();
+			
+			this.hourlyWeather = new FiveDayHourlyWeather();
+			
+			this.hourlyWeather.setCity(name);
 			
 		}catch(Exception e) {
 			e.printStackTrace();

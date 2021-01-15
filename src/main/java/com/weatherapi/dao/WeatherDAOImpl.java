@@ -18,6 +18,13 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 	}
 	
+	@Override
+	public String getHourlyWeatherData(String city, String country) throws IOException {
+		
+		return connectFiveDayForecast(city, country);
+		
+	}
+	
 	public String connectAPICity(String city, String country) throws IOException {
 		
 		OkHttpClient client = new OkHttpClient();

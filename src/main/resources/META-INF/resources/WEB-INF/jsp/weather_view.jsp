@@ -22,12 +22,13 @@ crossorigin="anonymous">
 	
 		<h3>Weather API: Get the current weather for your city.</h3><br/>
 	
-		<div class = "col-4">
+		<div class = "col-5">
 			
-			<form action = "weather" method = "get">
+			<form action = "" method = "get">
 				<input class = "form-control" name = "city" type = "text"  placeholder = "Your city" required/><br/>
 				<input class = "form-control" id = "country" name = "country" type = "text" value = "" placeholder = "Your country's ISO code (not required)"/><br/>
-				<button type = "submit" class = "btn btn-success btn-sm">Find out the weather!</button>
+				<button type = "submit" formaction = "/current/weather" name = "current" class = "btn btn-success btn-sm">Find out the current weather!</button>
+				<button type = "submit" formaction = "/five_day/weather" name = "five_day" class = "btn btn-info btn-sm">Find out 5 day forecast!</button>
 			</form>
 			
 		</div>

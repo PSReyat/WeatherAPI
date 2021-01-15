@@ -69,5 +69,7 @@ crossorigin="anonymous">
 	
 	</div>
 	
+	<script src = "js/five-day-forecast.js"></script>
+	
 </body>
 </html>
