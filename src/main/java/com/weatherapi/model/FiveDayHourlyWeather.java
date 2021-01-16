@@ -6,7 +6,6 @@ import java.text.DecimalFormat;
 public class FiveDayHourlyWeather {
 
 	private static final Double ABSOLUTE_TEMPERATURE_CONSTANT = 273.15;
-	private static final Integer CONVERT_SECONDS_TO_HOURS = 3600;
 
 	private String day;
 	private final String zero3 = "3AM";
@@ -23,11 +22,9 @@ public class FiveDayHourlyWeather {
 	private String city;
 	private String country;
 	private String countryISOCode;
-	private double timeZone;
 	private double temperature;
 	private String weather;
 	private String weatherDesc;
-	private double tempFeelsLike;
 	private double tempMin;
 	private double tempMax;
 	private double pressure;
@@ -126,14 +123,6 @@ public class FiveDayHourlyWeather {
 		this.weatherDesc = weatherDesc;
 	}
 
-	public double getTimeZone() {
-		return timeZone;
-	}
-
-	public void setTimeZone(double timeZone) {
-		this.timeZone = timeZone / CONVERT_SECONDS_TO_HOURS;
-	}
-
 	public double getTemperature() {
 		this.df.format(this.temperature);
 		return temperature;
@@ -141,15 +130,6 @@ public class FiveDayHourlyWeather {
 
 	public void setTemperature(double temperature) {
 		this.temperature = Double.parseDouble(String.format("%.2f", temperature - ABSOLUTE_TEMPERATURE_CONSTANT));
-	}
-
-	public double getTempFeelsLike() {
-		this.df.format(this.tempFeelsLike);
-		return tempFeelsLike;
-	}
-
-	public void setTempFeelsLike(double tempFeelsLike) {
-		this.tempFeelsLike = Double.parseDouble(String.format("%.2f", tempFeelsLike - ABSOLUTE_TEMPERATURE_CONSTANT));
 	}
 
 	public double getTempMin() {

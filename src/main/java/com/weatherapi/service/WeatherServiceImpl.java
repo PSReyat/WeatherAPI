@@ -1,6 +1,9 @@
 package com.weatherapi.service;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,13 +103,30 @@ public class WeatherServiceImpl implements WeatherService{
 		
 		try {
 			
+			List<FiveDayHourlyWeather> weatherPerThreeHoursPerDay;
+			Map<String, List<FiveDayHourlyWeather>> weatherForFiveDays = new HashMap<>();
+			
 			JSONObject obj = new JSONObject(this.json);
-			
-			String name = obj.getString("city").getString("name").toString();
-			
-			this.hourlyWeather = new FiveDayHourlyWeather();
+			String name = obj.getJSONObject("city").getString("name");
+			String country = obj.getJSONObject("city").getString("country");
 			
 			this.hourlyWeather.setCity(name);
+			this.hourlyWeather.setCountry(country);
+			
+			for(int i = 0; i < 40; i++) {
+				
+				this.hourlyWeather = new FiveDayHourlyWeather();
+				
+				
+				double humidity = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getInt("humidity");
+				double pressure = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getInt("pressure");
+				double temperature = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp");
+				double tempMax = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp_max");
+				double tempMin = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp_min");
+				String weather = obj.getJSONArray("list").getJSONObject(i).getJSONObject("weather").getString("main");
+				String weatherDesc = obj.getJSONArray("list").getJSONObject(i).getJSONObject("weather").getString("description");
+				
+			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();

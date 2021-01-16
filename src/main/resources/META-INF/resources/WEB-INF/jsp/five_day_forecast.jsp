@@ -39,12 +39,6 @@ crossorigin="anonymous">
 				<td>
 					Friday
 				</td>
-				<td>
-					Saturday
-				</td>
-				<td>
-					Sunday
-				</td>
 			</tr>
 			
 			<tr style = "background-color: #000000; color: #ffffff;">
