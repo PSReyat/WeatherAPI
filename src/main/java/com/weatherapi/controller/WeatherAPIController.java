@@ -58,7 +58,7 @@ public class WeatherAPIController {
 			@RequestParam("country") String country, 
 			Model model) {
 		
-		model.addAttribute("")
+		model.addAttribute("five_day", );
 		
 		return "five_day_forecast";
 		
