@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.weatherapi.countrycodes.CountryCodes;
+import com.weatherapi.model.FiveDayHourlyWeather;
 import com.weatherapi.model.Weather;
 import com.weatherapi.service.WeatherService;
 
@@ -37,7 +38,7 @@ public class WeatherAPIController {
 			@RequestParam("country") String country, 
 			Model model) throws IOException {
 		
-		Weather weather = new Weather();
+		Weather weather;
 		weather = this.wService.getWeatherDataCity(city, country);
 		
 		if(weather != null) {
@@ -56,9 +57,12 @@ public class WeatherAPIController {
 	public String getFiveDayForecast(
 			@RequestParam("city") String city, 
 			@RequestParam("country") String country, 
-			Model model) {
+			Model model) throws IOException {
 		
-		model.addAttribute("five_day", );
+		FiveDayHourlyWeather fiveDay;
+		fiveDay = this.wService.getHourlyWeather(city, country);
+		
+		model.addAttribute("five_day", fiveDay);
 		
 		return "five_day_forecast";
 		

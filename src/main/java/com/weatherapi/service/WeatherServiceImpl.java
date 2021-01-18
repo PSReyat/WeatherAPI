@@ -31,8 +31,8 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
+	@Override
 	public FiveDayHourlyWeather getHourlyWeather(String city, String country) throws IOException {
-		
 		
 		return jsonParseHourlyWeather(city, country);
 		
@@ -110,21 +110,20 @@ public class WeatherServiceImpl implements WeatherService{
 			String name = obj.getJSONObject("city").getString("name");
 			String country = obj.getJSONObject("city").getString("country");
 			
+			this.hourlyWeather = new FiveDayHourlyWeather();
+			
 			this.hourlyWeather.setCity(name);
 			this.hourlyWeather.setCountry(country);
 			
-			for(int i = 0; i < 40; i++) {
-				
-				this.hourlyWeather = new FiveDayHourlyWeather();
-				
+			for(int i = 0; i <= 39; i++) {
 				
 				double humidity = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getInt("humidity");
 				double pressure = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getInt("pressure");
 				double temperature = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp");
 				double tempMax = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp_max");
 				double tempMin = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp_min");
-				String weather = obj.getJSONArray("list").getJSONObject(i).getJSONObject("weather").getString("main");
-				String weatherDesc = obj.getJSONArray("list").getJSONObject(i).getJSONObject("weather").getString("description");
+				String weather = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("main");
+				String weatherDesc = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("description");
 				
 			}
 			

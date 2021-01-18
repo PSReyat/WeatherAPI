@@ -10,6 +10,8 @@ import okhttp3.Response;
 
 @Repository
 public class WeatherDAOImpl implements WeatherDAO{
+	
+	private static final String RAPID_API_KEY = "[OMITTED]";
 
 	@Override
 	public String getWeatherDataCity(String city, String country) throws IOException {
@@ -34,14 +36,14 @@ public class WeatherDAOImpl implements WeatherDAO{
 			request = new Request.Builder()
 				.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city)
 				.get()
-				.addHeader("x-rapidapi-key", "[OMITTED]")
+				.addHeader("x-rapidapi-key", RAPID_API_KEY)
 				.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
 				.build();
 		}else {
 			request = new Request.Builder()
 				.url("https://community-open-weather-map.p.rapidapi.com/weather?q=" + city + "%2C" + country)
 				.get()
-				.addHeader("x-rapidapi-key", "[OMITTED]")
+				.addHeader("x-rapidapi-key", RAPID_API_KEY)
 				.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
 				.build();
 		}
@@ -57,7 +59,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		Request request = new Request.Builder()
 			.url("https://community-open-weather-map.p.rapidapi.com/forecast?q=" + city + "%2C%20" + country)
 			.get()
-			.addHeader("x-rapidapi-key", "[OMITTED]")
+			.addHeader("x-rapidapi-key", RAPID_API_KEY)
 			.addHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
 			.build();
 

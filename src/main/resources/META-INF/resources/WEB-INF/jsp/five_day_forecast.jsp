@@ -17,7 +17,7 @@ crossorigin="anonymous">
 	
 		<table class = "table table-sm table-striped">
 	
-		<thead><tr><td style = "background-color: #bdbd4f">${weather.city}'s current weather</td></tr></thead>
+		<thead><tr><td style = "background-color: #bdbd4f">${five_day.city}'s current weather</td></tr></thead>
 		
 		<tbody>
 			
@@ -55,6 +55,10 @@ crossorigin="anonymous">
 				<td>
 					Weather Description
 				</td>
+			</tr>
+			<tr>
+				<td>${five_day.city}</td>
+				<td>${five_day.country}</td>
 			</tr>
 			
 		</tbody>
