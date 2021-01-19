@@ -1,10 +1,13 @@
 package com.weatherapi.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.joda.time.DateTime;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -103,8 +106,12 @@ public class WeatherServiceImpl implements WeatherService{
 		
 		try {
 			
-			List<FiveDayHourlyWeather> weatherPerThreeHoursPerDay;
+			List<FiveDayHourlyWeather> weatherPerThreeHoursPerDay = new ArrayList<>();
 			Map<String, List<FiveDayHourlyWeather>> weatherForFiveDays = new HashMap<>();
+			DateTime dt = new DateTime(new Date());
+			DateTime.Property dtp = dt.dayOfWeek();
+			
+			String day = dtp.getAsText();
 			
 			JSONObject obj = new JSONObject(this.json);
 			String name = obj.getJSONObject("city").getString("name");
@@ -114,6 +121,7 @@ public class WeatherServiceImpl implements WeatherService{
 			
 			this.hourlyWeather.setCity(name);
 			this.hourlyWeather.setCountry(country);
+			this.hourlyWeather.setDay(day);
 			
 			for(int i = 0; i <= 39; i++) {
 				
@@ -124,6 +132,20 @@ public class WeatherServiceImpl implements WeatherService{
 				double tempMin = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp_min");
 				String weather = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("main");
 				String weatherDesc = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("description");
+				
+				this.hourlyWeather.setHumidity(humidity);
+				this.hourlyWeather.setPressure(pressure);
+				this.hourlyWeather.setTemperature(temperature);
+				this.hourlyWeather.setTempMax(tempMax);
+				this.hourlyWeather.setTempMin(tempMin);
+				this.hourlyWeather.setWeather(weather);
+				this.hourlyWeather.setWeatherDesc(weatherDesc);
+				
+				weatherPerThreeHoursPerDay.add(this.hourlyWeather);
+				
+				weatherForFiveDays.put(day.toString(), weatherPerThreeHoursPerDay);
+				
+				break;
 				
 			}
 			

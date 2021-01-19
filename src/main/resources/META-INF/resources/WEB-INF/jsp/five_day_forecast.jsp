@@ -17,48 +17,35 @@ crossorigin="anonymous">
 	
 		<table class = "table table-sm table-striped">
 	
-		<thead><tr><td style = "background-color: #bdbd4f">${five_day.city}'s current weather</td></tr></thead>
+		<thead><tr><td style = "background-color: #bdbd4f">${five_day.city}'s 5 day weather forecast</td></tr></thead>
 		
 		<tbody>
 			
-			<tr style = "background-color: #000000; color: #ffffff;">
+			<tr>
 				<td>
+					<button class = "btn btn-info">${five_day.day}</button>
 				</td>
 				<td>
-					Monday
+					<button class = "btn btn-info">Tuesday</button>
 				</td>
 				<td>
-					Tuesday
+					<button class = "btn btn-info">Wednesday</button>
 				</td>
 				<td>
-					Wednesday
+					<button class = "btn btn-info">Thursday</button>
 				</td>
 				<td>
-					Thursday
-				</td>
-				<td>
-					Friday
-				</td>
-			</tr>
-			
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-					Temperature
-				</td>
-			</tr>
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-					Weather
-				</td>
-			</tr>
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-					Weather Description
+					<button class = "btn btn-info">Friday</button>
 				</td>
 			</tr>
 			<tr>
-				<td>${five_day.city}</td>
-				<td>${five_day.country}</td>
+				<td>${five_day.humidity}</td>
+				<td>${five_day.pressure}</td>
+				<td>${five_day.temperature}</td>
+				<td>${five_day.tempMax}</td>
+				<td>${five_day.tempMin}</td>
+				<td>${five_day.weather}</td>
+				<td>${five_day.weatherDesc}</td>
 			</tr>
 			
 		</tbody>
