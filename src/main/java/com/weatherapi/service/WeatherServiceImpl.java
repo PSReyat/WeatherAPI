@@ -3,7 +3,7 @@ package com.weatherapi.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +25,7 @@ public class WeatherServiceImpl implements WeatherService{
 	
 	private String json;
 	private Weather weather;
-	private FiveDayHourlyWeather hourlyWeather;
+	private Map<String, List<FiveDayHourlyWeather>> weatherForFiveDays;
 
 	@Override
 	public Weather getWeatherDataCity(String city, String country) throws IOException {
@@ -35,7 +35,7 @@ public class WeatherServiceImpl implements WeatherService{
 	}
 	
 	@Override
-	public FiveDayHourlyWeather getHourlyWeather(String city, String country) throws IOException {
+	public Map<String, List<FiveDayHourlyWeather>> getHourlyWeather(String city, String country) throws IOException {
 		
 		return jsonParseHourlyWeather(city, country);
 		
@@ -51,12 +51,12 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
-	public FiveDayHourlyWeather jsonParseHourlyWeather(String city, String country) throws IOException {
+	public Map<String, List<FiveDayHourlyWeather>> jsonParseHourlyWeather(String city, String country) throws IOException {
 		
 		this.json = this.wDAO.getHourlyWeatherData(city, country);
 		setHourlyWeatherParameters();
 		
-		return this.hourlyWeather;
+		return this.weatherForFiveDays;
 		
 	}
 	
@@ -107,24 +107,26 @@ public class WeatherServiceImpl implements WeatherService{
 		try {
 			
 			List<FiveDayHourlyWeather> weatherPerThreeHoursPerDay = new ArrayList<>();
-			Map<String, List<FiveDayHourlyWeather>> weatherForFiveDays = new HashMap<>();
+			this.weatherForFiveDays = new LinkedHashMap<>();
 			DateTime dt = new DateTime(new Date());
 			DateTime.Property dtp = dt.dayOfWeek();
 			
 			String day = dtp.getAsText();
 			
 			JSONObject obj = new JSONObject(this.json);
-			String name = obj.getJSONObject("city").getString("name");
-			String country = obj.getJSONObject("city").getString("country");
 			
-			this.hourlyWeather = new FiveDayHourlyWeather();
+			FiveDayHourlyWeather hourlyWeather = new FiveDayHourlyWeather();
 			
-			this.hourlyWeather.setCity(name);
-			this.hourlyWeather.setCountry(country);
-			this.hourlyWeather.setDay(day);
+			hourlyWeather.setCity(getCity(obj));
+			hourlyWeather.setCountry(new CountryCodes().getCountry(getCountry(obj)));
+			hourlyWeather.setCountryISOCode(getCountry(obj));
+			hourlyWeather.setDay(day);
 			
-			for(int i = 0; i <= 39; i++) {
+			int count = 0;
+			
+			for(int i = 0; i < obj.getJSONArray("list").length(); i++) {
 				
+				String time = obj.getJSONArray("list").getJSONObject(i).getString("dt_txt").split(" ")[1];
 				double humidity = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getInt("humidity");
 				double pressure = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getInt("pressure");
 				double temperature = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getDouble("temp");
@@ -133,26 +135,51 @@ public class WeatherServiceImpl implements WeatherService{
 				String weather = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("main");
 				String weatherDesc = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("description");
 				
-				this.hourlyWeather.setHumidity(humidity);
-				this.hourlyWeather.setPressure(pressure);
-				this.hourlyWeather.setTemperature(temperature);
-				this.hourlyWeather.setTempMax(tempMax);
-				this.hourlyWeather.setTempMin(tempMin);
-				this.hourlyWeather.setWeather(weather);
-				this.hourlyWeather.setWeatherDesc(weatherDesc);
+				hourlyWeather.setTime(time);
+				hourlyWeather.setHumidity(humidity);
+				hourlyWeather.setPressure(pressure);
+				hourlyWeather.setTemperature(temperature);
+				hourlyWeather.setTempMax(tempMax);
+				hourlyWeather.setTempMin(tempMin);
+				hourlyWeather.setWeather(weather);
+				hourlyWeather.setWeatherDesc(weatherDesc);
 				
-				weatherPerThreeHoursPerDay.add(this.hourlyWeather);
+				weatherPerThreeHoursPerDay.add(hourlyWeather);
 				
-				weatherForFiveDays.put(day.toString(), weatherPerThreeHoursPerDay);
-				
-				break;
-				
+				if(time.equals("00:00:00")) {
+					weatherForFiveDays.put(day.toString(), weatherPerThreeHoursPerDay);
+					count++;
+					dtp = dt.plusDays(count).dayOfWeek();
+					day = dtp.getAsText();
+					
+					weatherPerThreeHoursPerDay.clear();
+					
+				}
+		
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public String getCity(JSONObject obj) {
+		String name = obj.getJSONObject("city").getString("name");
+		
+		return name;
+	}
+	
+	public String getCountry(JSONObject obj) {
+		String country = obj.getJSONObject("city").getString("country");
+		
+		return country;
+	}
+	
+	public String getWeatherTime(JSONObject obj) {
+		String time = obj.getJSONArray("list").getJSONObject(0).getString("dt_txt").split(" ")[1];
+		
+		return time;
 	}
 
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,39 +14,70 @@ crossorigin="anonymous">
 </head>
 <body>
 	
+	<h3 style = "background-color: #bdbd4f; padding-bottom: 5px;">${city}'s five day weather forecast</h3>
+	
 	<div class = "card-body">
 	
-		<table class = "table table-sm table-striped">
-	
-		<thead><tr><td style = "background-color: #bdbd4f">${five_day.city}'s 5 day weather forecast</td></tr></thead>
+	<table class = "table table-hover table-sm">
 		
 		<tbody>
 			
 			<tr>
+				<c:forEach items = "${five_day}" var = "fiveDay">
+					<td>
+						<button class = "btn btn-info btn-lg" style = "width: 100%;">${fiveDay.key}</button>
+					</td>
+				</c:forEach>
+			</tr>
+		</tbody>
+	
+	</table>
+	
+	<table class = "table table-striped table-sm">
+	
+		<tbody>
+			
+			<tr style = "background-color: #000000; color: #ffffff;">
 				<td>
-					<button class = "btn btn-info">${five_day.day}</button>
 				</td>
 				<td>
-					<button class = "btn btn-info">Tuesday</button>
+					Country 
 				</td>
 				<td>
-					<button class = "btn btn-info">Wednesday</button>
+					Country (ISO code)
 				</td>
 				<td>
-					<button class = "btn btn-info">Thursday</button>
+					Time zone (Hours)
 				</td>
 				<td>
-					<button class = "btn btn-info">Friday</button>
+					Temperature (&#176;C)
+				</td>
+				<td>
+					Minimum temperature (&#176;C)
+				</td>
+				<td>
+					Maximum temperature (&#176;C)
+				</td>
+				<td>
+					Weather
+				</td>
+				<td>
+					Weather description
+				</td>
+				<td>
+					Pressure
+				</td>
+				<td>
+					Humidity
 				</td>
 			</tr>
+			
 			<tr>
-				<td>${five_day.humidity}</td>
-				<td>${five_day.pressure}</td>
-				<td>${five_day.temperature}</td>
-				<td>${five_day.tempMax}</td>
-				<td>${five_day.tempMin}</td>
-				<td>${five_day.weather}</td>
-				<td>${five_day.weatherDesc}</td>
+			
+				<td>
+					${five_day.value}
+				</td>
+			
 			</tr>
 			
 		</tbody>

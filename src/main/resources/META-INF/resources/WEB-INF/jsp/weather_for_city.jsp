@@ -12,12 +12,12 @@ crossorigin="anonymous">
 
 </head>
 <body>
+	
+	<h3 style = "background-color: #bdbd4f; padding-bottom: 5px;">${weather.city}'s current weather</h3>
 
 	<div class = "card-body">
-	
-		<table class = "table table-sm table-striped">
 		
-			<thead><tr><td style = "background-color: #bdbd4f">${weather.city}'s current weather</td></tr></thead>
+		<table class = "table table-sm table-striped">
 			
 			<tbody>
 			

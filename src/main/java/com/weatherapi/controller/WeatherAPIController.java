@@ -1,6 +1,8 @@
 package com.weatherapi.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,10 +61,12 @@ public class WeatherAPIController {
 			@RequestParam("country") String country, 
 			Model model) throws IOException {
 		
-		FiveDayHourlyWeather fiveDay;
+		Map<String, List<FiveDayHourlyWeather>> fiveDay;
 		fiveDay = this.wService.getHourlyWeather(city, country);
 		
 		model.addAttribute("five_day", fiveDay);
+		city = city.substring(0, 1).toUpperCase() + city.substring(1);
+		model.addAttribute("city", city);
 		
 		return "five_day_forecast";
 		

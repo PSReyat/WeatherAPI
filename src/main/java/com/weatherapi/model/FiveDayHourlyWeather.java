@@ -20,6 +20,7 @@ public class FiveDayHourlyWeather {
 	private DecimalFormat df;
 
 	private String city;
+	private String time;
 	private String country;
 	private String countryISOCode;
 	private double temperature;
@@ -33,6 +34,14 @@ public class FiveDayHourlyWeather {
 	public FiveDayHourlyWeather() {
 		this.df = new DecimalFormat("#.00");
 		this.df.setRoundingMode(RoundingMode.CEILING);
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	public String getDay() {
