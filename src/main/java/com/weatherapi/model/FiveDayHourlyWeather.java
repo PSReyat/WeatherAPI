@@ -6,19 +6,9 @@ import java.text.DecimalFormat;
 public class FiveDayHourlyWeather {
 
 	private static final Double ABSOLUTE_TEMPERATURE_CONSTANT = 273.15;
-
-	private String day;
-	private final String zero3 = "3AM";
-	private final String zero6 = "6AM";
-	private final String zero9 = "9AM";
-	private final String zero12 = "12PM";
-	private final String zero15 = "3PM";
-	private final String zero18 = "6PM";
-	private final String zero21 = "9PM";
-	private final String zero24 = "12AM";
-
 	private DecimalFormat df;
-
+	
+	private String day;
 	private String city;
 	private String time;
 	private String country;
@@ -50,38 +40,6 @@ public class FiveDayHourlyWeather {
 
 	public void setDay(String day) {
 		this.day = day;
-	}
-
-	public String getZero3() {
-		return zero3;
-	}
-
-	public String getZero6() {
-		return zero6;
-	}
-
-	public String getZero9() {
-		return zero9;
-	}
-
-	public String getZero12() {
-		return zero12;
-	}
-
-	public String getZero15() {
-		return zero15;
-	}
-
-	public String getZero18() {
-		return zero18;
-	}
-
-	public String getZero21() {
-		return zero21;
-	}
-
-	public String getZero24() {
-		return zero24;
 	}
 
 	public DecimalFormat getDf() {
