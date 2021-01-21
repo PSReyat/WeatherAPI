@@ -76,19 +76,17 @@ crossorigin="anonymous">
 					
 				<c:forEach items = "${fiveDay.value}" var = "list">
 					
-					<c:forEach items = "${list}" var = "obj">
-						<tr>
-							<td>
-								${obj.time}
-							</td>
-							<td>
-								${obj.country}
-							</td>
-							<td>
-								${obj.countryISOCode}
-							</td>
-						</tr>
-					</c:forEach>
+					<tr>
+						<td>
+							${list.time}
+						</td>
+						<td>
+							${list.country}
+						</td>
+						<td>
+							${list.countryISOCode}
+						</td>
+					</tr>
 					
 				</c:forEach>
 				

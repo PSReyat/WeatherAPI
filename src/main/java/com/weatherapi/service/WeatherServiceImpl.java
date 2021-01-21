@@ -41,7 +41,7 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
-	//Retrieves weather data in JSON format and assigns it to a String object.
+	//Retrieves weather data in JSON format and assigns it to a String variable.
 	public Weather jsonParseCityWeather(String city, String country) throws IOException {
 		
 		this.json = this.wDAO.getWeatherDataCity(city, country);
@@ -60,7 +60,7 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
-	//Parses the JSONOBject and retrieves the necessary data.
+	//Parses the JSONOBject and retrieves the weather data.
 	public void setWeatherParameters() {
 		
 		try {
@@ -110,21 +110,16 @@ public class WeatherServiceImpl implements WeatherService{
 			this.weatherForFiveDays = new LinkedHashMap<>();
 			DateTime dt = new DateTime(new Date());
 			DateTime.Property dtp = dt.dayOfWeek();
-			
 			String day = dtp.getAsText();
 			
 			JSONObject obj = new JSONObject(this.json);
-			
-			FiveDayHourlyWeather hourlyWeather = new FiveDayHourlyWeather();
-			
-			hourlyWeather.setCity(getCity(obj));
-			hourlyWeather.setCountry(new CountryCodes().getCountry(getCountry(obj)));
-			hourlyWeather.setCountryISOCode(getCountry(obj));
-			hourlyWeather.setDay(day);
+			FiveDayHourlyWeather hourlyWeather;
 			
 			int count = 0;
 			
 			for(int i = 0; i < obj.getJSONArray("list").length(); i++) {
+				
+				hourlyWeather = new FiveDayHourlyWeather();
 				
 				String time = obj.getJSONArray("list").getJSONObject(i).getString("dt_txt").split(" ")[1];
 				double humidity = obj.getJSONArray("list").getJSONObject(i).getJSONObject("main").getInt("humidity");
@@ -135,6 +130,11 @@ public class WeatherServiceImpl implements WeatherService{
 				String weather = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("main");
 				String weatherDesc = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("description");
 				
+				
+				hourlyWeather.setCity(getCity(obj));
+				hourlyWeather.setCountry(new CountryCodes().getCountry(getCountry(obj)));
+				hourlyWeather.setCountryISOCode(getCountry(obj));
+				hourlyWeather.setDay(day);
 				hourlyWeather.setTime(time);
 				hourlyWeather.setHumidity(humidity);
 				hourlyWeather.setPressure(pressure);
@@ -147,11 +147,11 @@ public class WeatherServiceImpl implements WeatherService{
 				weatherPerThreeHoursPerDay.add(hourlyWeather);
 				
 				if(time.equals("00:00:00")) {
-					weatherForFiveDays.put(day.toString(), weatherPerThreeHoursPerDay);
+					this.weatherForFiveDays.put(day.toString(), weatherPerThreeHoursPerDay);
 					count++;
+					System.out.println(count);
 					dtp = dt.plusDays(count).dayOfWeek();
 					day = dtp.getAsText();
-					
 					weatherPerThreeHoursPerDay.clear();
 					
 				}
@@ -175,11 +175,6 @@ public class WeatherServiceImpl implements WeatherService{
 		
 		return country;
 	}
-	
-	public String getWeatherTime(JSONObject obj) {
-		String time = obj.getJSONArray("list").getJSONObject(0).getString("dt_txt").split(" ")[1];
-		
-		return time;
-	}
+
 
 }
