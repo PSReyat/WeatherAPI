@@ -130,11 +130,10 @@ public class WeatherServiceImpl implements WeatherService{
 				String weather = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("main");
 				String weatherDesc = obj.getJSONArray("list").getJSONObject(i).getJSONArray("weather").getJSONObject(0).getString("description");
 				
-				
+				hourlyWeather.setDay(day);
 				hourlyWeather.setCity(getCity(obj));
 				hourlyWeather.setCountry(new CountryCodes().getCountry(getCountry(obj)));
 				hourlyWeather.setCountryISOCode(getCountry(obj));
-				hourlyWeather.setDay(day);
 				hourlyWeather.setTime(time);
 				hourlyWeather.setHumidity(humidity);
 				hourlyWeather.setPressure(pressure);
@@ -146,17 +145,21 @@ public class WeatherServiceImpl implements WeatherService{
 				
 				weatherPerThreeHoursPerDay.add(hourlyWeather);
 				
-				if(time.equals("00:00:00")) {
+				if(time.equals("21:00:00")) {
 					this.weatherForFiveDays.put(day.toString(), weatherPerThreeHoursPerDay);
 					count++;
-					System.out.println(count);
 					dtp = dt.plusDays(count).dayOfWeek();
 					day = dtp.getAsText();
-					weatherPerThreeHoursPerDay.clear();
-					
+					weatherPerThreeHoursPerDay = new ArrayList<>();
 				}
 		
 			}
+			
+			System.out.println("Time: " + this.weatherForFiveDays.get("Friday").get(0).getTime() + " " + this.weatherForFiveDays.get("Friday").get(0).getDay());
+			System.out.println("Time: " + this.weatherForFiveDays.get("Saturday").get(0).getTime() + " " + this.weatherForFiveDays.get("Saturday").get(0).getDay());
+			System.out.println("Time: " + this.weatherForFiveDays.get("Sunday").get(0).getTime() + " " + this.weatherForFiveDays.get("Sunday").get(0).getDay());
+			System.out.println("Time: " + this.weatherForFiveDays.get("Monday").get(0).getTime() + " " + this.weatherForFiveDays.get("Monday").get(0).getDay());
+			System.out.println("Time: " + this.weatherForFiveDays.get("Tuesday").get(0).getTime() + " " + this.weatherForFiveDays.get("Tuesday").get(0).getDay());
 			
 		}catch(Exception e) {
 			e.printStackTrace();

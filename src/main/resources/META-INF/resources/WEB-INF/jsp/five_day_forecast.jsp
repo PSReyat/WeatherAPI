@@ -47,9 +47,6 @@ crossorigin="anonymous">
 					Country (ISO code)
 				</td>
 				<td>
-					Time zone (Hours)
-				</td>
-				<td>
 					Temperature (&#176;C)
 				</td>
 				<td>
@@ -85,6 +82,27 @@ crossorigin="anonymous">
 						</td>
 						<td>
 							${list.countryISOCode}
+						</td>
+						<td>
+							${list.temperature}
+						</td>
+						<td>
+							${list.tempMin}
+						</td>
+						<td>
+							${list.tempMax}
+						</td>
+						<td>
+							${list.weather}
+						</td>
+						<td>
+							${list.weatherDesc}
+						</td>
+						<td>
+							${list.pressure}
+						</td>
+						<td>
+							${list.humidity}
 						</td>
 					</tr>
 					
