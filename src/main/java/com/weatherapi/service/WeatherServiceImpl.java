@@ -155,12 +155,6 @@ public class WeatherServiceImpl implements WeatherService{
 		
 			}
 			
-			System.out.println("Time: " + this.weatherForFiveDays.get("Friday").get(0).getTime() + " " + this.weatherForFiveDays.get("Friday").get(0).getDay());
-			System.out.println("Time: " + this.weatherForFiveDays.get("Saturday").get(0).getTime() + " " + this.weatherForFiveDays.get("Saturday").get(0).getDay());
-			System.out.println("Time: " + this.weatherForFiveDays.get("Sunday").get(0).getTime() + " " + this.weatherForFiveDays.get("Sunday").get(0).getDay());
-			System.out.println("Time: " + this.weatherForFiveDays.get("Monday").get(0).getTime() + " " + this.weatherForFiveDays.get("Monday").get(0).getDay());
-			System.out.println("Time: " + this.weatherForFiveDays.get("Tuesday").get(0).getTime() + " " + this.weatherForFiveDays.get("Tuesday").get(0).getDay());
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

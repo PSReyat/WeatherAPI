@@ -18,101 +18,104 @@ crossorigin="anonymous">
 	
 	<div class = "card-body">
 	
-	<table class = "table table-hover table-sm">
+		<table class = "table table-hover table-sm">
+			
+			<tbody>
+				
+				<tr>
+					<c:forEach items = "${five_day}" var = "fiveDay">
+						<td>
+							<button id = "days" class = "btn btn-info btn-lg" style = "width: 100%;" value = "${fiveDay.key}" onclick = "chooseDay(value)">${fiveDay.key}</button>
+						</td>
+					</c:forEach>
+				</tr>
+			</tbody>
 		
-		<tbody>
-			
-			<tr>
-				<c:forEach items = "${five_day}" var = "fiveDay">
+		</table>
+		
+		<table class = "table table-striped table-sm">
+		
+			<tbody>
+				
+				<tr style = "background-color: #000000; color: #ffffff;">
 					<td>
-						<button class = "btn btn-info btn-lg" style = "width: 100%;">${fiveDay.key}</button>
 					</td>
-				</c:forEach>
-			</tr>
-		</tbody>
-	
-	</table>
-	
-	<table class = "table table-striped table-sm">
-	
-		<tbody>
-			
-			<tr style = "background-color: #000000; color: #ffffff;">
-				<td>
-				</td>
-				<td>
-					Country 
-				</td>
-				<td>
-					Country (ISO code)
-				</td>
-				<td>
-					Temperature (&#176;C)
-				</td>
-				<td>
-					Minimum temperature (&#176;C)
-				</td>
-				<td>
-					Maximum temperature (&#176;C)
-				</td>
-				<td>
-					Weather
-				</td>
-				<td>
-					Weather description
-				</td>
-				<td>
-					Pressure
-				</td>
-				<td>
-					Humidity
-				</td>
-			</tr>
-			
-			<c:forEach items = "${five_day}" var = "fiveDay">
-					
-				<c:forEach items = "${fiveDay.value}" var = "list">
-					
-					<tr>
-						<td>
-							${list.time}
-						</td>
-						<td>
-							${list.country}
-						</td>
-						<td>
-							${list.countryISOCode}
-						</td>
-						<td>
-							${list.temperature}
-						</td>
-						<td>
-							${list.tempMin}
-						</td>
-						<td>
-							${list.tempMax}
-						</td>
-						<td>
-							${list.weather}
-						</td>
-						<td>
-							${list.weatherDesc}
-						</td>
-						<td>
-							${list.pressure}
-						</td>
-						<td>
-							${list.humidity}
-						</td>
-					</tr>
+					<td>
+						Country 
+					</td>
+					<td>
+						Country (ISO code)
+					</td>
+					<td>
+						Temperature (&#176;C)
+					</td>
+					<td>
+						Minimum temperature (&#176;C)
+					</td>
+					<td>
+						Maximum temperature (&#176;C)
+					</td>
+					<td>
+						Weather
+					</td>
+					<td>
+						Weather description
+					</td>
+					<td>
+						Pressure
+					</td>
+					<td>
+						Humidity
+					</td>
+				</tr>
+				
+				<c:forEach items = "${five_day}" var = "fiveDay">
+						
+					<c:forEach items = "${fiveDay.value}" var = "list">
+						
+						<c:set var = "day" value = "${list.day}"/>
+						<c:if test = "${day == 'Saturday'}">
+							<tr>
+								<td>
+									${list.time}
+								</td>
+								<td>
+									${list.country}
+								</td>
+								<td>
+									${list.countryISOCode}
+								</td>
+								<td>
+									${list.temperature}
+								</td>
+								<td>
+									${list.tempMin}
+								</td>
+								<td>
+									${list.tempMax}
+								</td>
+								<td>
+									${list.weather}
+								</td>
+								<td>
+									${list.weatherDesc}
+								</td>
+								<td>
+									${list.pressure}
+								</td>
+								<td>
+									${list.humidity}
+								</td>
+							</tr>
+						</c:if>
+						
+					</c:forEach>
 					
 				</c:forEach>
 				
-			</c:forEach>
-			
-		</tbody>
-	
-	</table>
+			</tbody>
+		
+		</table>
 	
 	</div>
 	
