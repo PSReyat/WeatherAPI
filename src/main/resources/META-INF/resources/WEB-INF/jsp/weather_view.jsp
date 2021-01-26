@@ -77,7 +77,7 @@ crossorigin="anonymous">
 		
 	</div>
 	
-	<script src = "js/search-iso-codes.js"></script>
+	<script src = "/js/search-iso-codes.js"></script>
 
 </body>
 </html>

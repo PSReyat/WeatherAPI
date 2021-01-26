@@ -1,3 +1,7 @@
-function chooseDay(chosenDay){
-	console.log(chosenDay);
-}
+/**
+ * 
+ */
+ function chooseDay(day){
+	let chosenDay = document.getElementById("set_day");
+	chosenDay.value = day;
+ }

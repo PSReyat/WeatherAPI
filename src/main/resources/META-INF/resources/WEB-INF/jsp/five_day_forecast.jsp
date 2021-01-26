@@ -74,7 +74,7 @@ crossorigin="anonymous">
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = "day" value = "${list.day}"/>
-						<c:if test = "${day == 'Monday'}">
+						<c:if test = "${day == 'Tuesday'}">
 							<tr>
 								<td>
 									${list.time}
@@ -119,7 +119,7 @@ crossorigin="anonymous">
 	
 	</div>
 	
-	<script src = "js/five-day-forecast.js"></script>
+	<script src = "/js/five-day-forecast.js"></script>
 	
 </body>
 </html>
