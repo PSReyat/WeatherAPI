@@ -74,7 +74,7 @@ crossorigin="anonymous">
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = "day" value = "${list.day}"/>
-						<c:if test = "${day == 'Tuesday'}">
+						<c:if test = "${day == 'Wednesday'}">
 							<tr>
 								<td>
 									${list.time}
