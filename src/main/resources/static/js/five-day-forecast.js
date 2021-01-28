@@ -2,5 +2,5 @@
  * 
  */
  function chooseDay(day){
-	console.log(day);
+	document.getElementById("current_day").innerHTML = day;
 }

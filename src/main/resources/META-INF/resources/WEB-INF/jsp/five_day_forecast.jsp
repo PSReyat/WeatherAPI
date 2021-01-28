@@ -38,7 +38,7 @@ crossorigin="anonymous">
 			<tbody>
 				
 				<tr style = "background-color: #000000; color: #ffffff;">
-					<td>
+					<td id = "current_day" style = "background-color: #00ff00; color: #000000">
 					</td>
 					<td>
 						Country 
@@ -74,7 +74,7 @@ crossorigin="anonymous">
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = "day" value = "${list.day}"/>
-						<c:if test = "${day == 'Wednesday'}">
+						<c:if test = "${day == 'Thursday'}">
 							<tr>
 								<td>
 									${list.time}
