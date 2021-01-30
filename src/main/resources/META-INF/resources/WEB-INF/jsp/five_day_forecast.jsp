@@ -13,6 +13,8 @@ crossorigin="anonymous">
 
 </head>
 <body>
+
+<c:set var = "chosen_day" value = "Saturday"/>
 	
 	<h3 style = "background-color: #bdbd4f; padding-bottom: 5px;">${city}'s five day weather forecast</h3>
 	
@@ -38,7 +40,8 @@ crossorigin="anonymous">
 			<tbody>
 				
 				<tr style = "background-color: #000000; color: #ffffff;">
-					<td id = "current_day" style = "background-color: #00ff00; color: #000000">
+					<td id = "current_day" style = "background-color: #15ff15; color: #150015">
+						Today
 					</td>
 					<td>
 						Country 
@@ -74,7 +77,8 @@ crossorigin="anonymous">
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = "day" value = "${list.day}"/>
-						<c:if test = "${day == 'Thursday'}">
+						
+						<c:if test = "${day == chosen_day}">
 							<tr>
 								<td>
 									${list.time}
