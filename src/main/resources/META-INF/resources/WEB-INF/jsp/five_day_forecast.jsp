@@ -21,7 +21,6 @@ crossorigin="anonymous">
 		<table class = "table table-hover table-sm">
 			
 			<tbody>
-				
 				<tr>
 					<c:forEach items = "${five_day}" var = "fiveDay">
 						<td>
@@ -75,7 +74,7 @@ crossorigin="anonymous">
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = 'day' value = '${list.day}'/>
-						<c:set var = 'chosen_day' value = 'Sunday'/>
+						<c:set var = 'chosen_day' value = 'Tuesday'/>
 						<c:if test = "${day == chosen_day}">
 							<tr>
 								<td>
