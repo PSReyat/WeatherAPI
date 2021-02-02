@@ -34,8 +34,7 @@ crossorigin="anonymous">
 		
 		<table id = "weather_display" class = "table table-striped table-sm">
 		
-			<tbody>
-				
+			<thead>
 				<tr style = "background-color: #000000; color: #ffffff;">
 					<td id = "current_day" style = "background-color: #15ff15; color: #150015">
 						Today
@@ -68,13 +67,14 @@ crossorigin="anonymous">
 						Humidity
 					</td>
 				</tr>
+			</thead>
+			<tbody>
 				
 				<c:forEach items = "${five_day}" var = "fiveDay">
 						
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = 'day' value = '${list.day}'/>
-						<c:set var = 'chosen_day' value = 'Tuesday'/>
 						<c:if test = "${day == chosen_day}">
 							<tr>
 								<td>
