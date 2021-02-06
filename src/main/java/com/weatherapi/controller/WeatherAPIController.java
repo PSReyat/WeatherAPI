@@ -1,6 +1,7 @@
 package com.weatherapi.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +23,14 @@ public class WeatherAPIController {
 	
 	@Autowired
 	WeatherService wService;
+	
+	private List<String> days;
+	
+	private List<FiveDayHourlyWeather> day1;
+	private List<FiveDayHourlyWeather> day2;
+	private List<FiveDayHourlyWeather> day3;
+	private List<FiveDayHourlyWeather> day4;
+	private List<FiveDayHourlyWeather> day5;
 	
 	//Sets the search page and loads the ISO codes table.
 	@RequestMapping("/")
@@ -61,14 +70,34 @@ public class WeatherAPIController {
 			@RequestParam("country") String country, 
 			Model model) throws IOException {
 		
+		city = city.substring(0, 1).toUpperCase() + city.substring(1);
+		
 		Map<String, List<FiveDayHourlyWeather>> fiveDay;
 		fiveDay = this.wService.getHourlyWeather(city, country);
+		getDays(fiveDay);
 		
 		model.addAttribute("five_day", fiveDay);
-		city = city.substring(0, 1).toUpperCase() + city.substring(1);
 		model.addAttribute("city", city);
+		model.addAttribute("days", this.days);
 		
 		return "five_day_forecast";
+		
+	}
+	
+	@GetMapping("/")
+	public String refreshForecast() {
+		return "five_day_forecast";
+	}
+	
+	public void getDays(Map<String, List<FiveDayHourlyWeather>> fiveDay) {
+		
+		this.days = new ArrayList<>();
+		
+		for(String day : fiveDay.keySet()) {
+			
+			this.days.add(day);
+			
+		}
 		
 	}
 	

@@ -22,10 +22,10 @@ crossorigin="anonymous">
 			
 			<tbody>
 				<tr>
-					<c:forEach items = "${five_day}" var = "fiveDay">
+					<c:forEach items = "${days}" var = "days">
 						<td >
-							<button id = "days" class = "btn btn-info btn-lg" style = "width: 100%;" value = "${fiveDay.key}" onclick = "chooseDay(value)">
-								${fiveDay.key}
+							<button id = "days" class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days}" onclick = "chooseDay(value)">
+								${days}
 							</button>
 						</td>
 					</c:forEach>
@@ -59,7 +59,7 @@ crossorigin="anonymous">
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = 'day' value = '${list.day}'/>
-						<c:if test = "${day == chosen_day}">
+						<c:if test = "${day == 'Saturday'}">
 							<tr>
 								<td>${list.time}</td>
 								<td>${list.country}</td>
