@@ -34,13 +34,6 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
-	@Override
-	public Map<String, List<FiveDayHourlyWeather>> getHourlyWeather(String city, String country) throws IOException {
-		
-		return jsonParseHourlyWeather(city, country);
-		
-	}
-	
 	//Retrieves weather data in JSON format and assigns it to a String variable.
 	public Weather jsonParseCityWeather(String city, String country) throws IOException {
 		
@@ -50,16 +43,7 @@ public class WeatherServiceImpl implements WeatherService{
 		return this.weather;
 		
 	}
-	
-	public Map<String, List<FiveDayHourlyWeather>> jsonParseHourlyWeather(String city, String country) throws IOException {
 		
-		this.json = this.wDAO.getHourlyWeatherData(city, country);
-		setHourlyWeatherParameters();
-		
-		return this.weatherForFiveDays;
-		
-	}
-	
 	//Parses the JSONOBject and retrieves the weather data.
 	public void setWeatherParameters() {
 		
@@ -99,6 +83,22 @@ public class WeatherServiceImpl implements WeatherService{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+	}
+	
+	@Override
+	public Map<String, List<FiveDayHourlyWeather>> getHourlyWeather(String city, String country) throws IOException {
+		
+		return jsonParseHourlyWeather(city, country);
+		
+	}
+	
+	public Map<String, List<FiveDayHourlyWeather>> jsonParseHourlyWeather(String city, String country) throws IOException {
+		
+		this.json = this.wDAO.getHourlyWeatherData(city, country);
+		setHourlyWeatherParameters();
+		
+		return this.weatherForFiveDays;
 		
 	}
 	

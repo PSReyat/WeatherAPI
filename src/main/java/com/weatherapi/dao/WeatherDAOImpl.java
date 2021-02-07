@@ -27,6 +27,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 	}
 	
+	//Gets weather data for current time
 	public String connectAPICity(String city, String country) throws IOException {
 		
 		OkHttpClient client = new OkHttpClient();

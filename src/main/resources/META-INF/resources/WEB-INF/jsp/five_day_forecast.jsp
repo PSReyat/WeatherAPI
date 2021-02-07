@@ -34,12 +34,12 @@ crossorigin="anonymous">
 		
 		</table>
 		
-		<table id = "weather_display" class = "table table-striped table-sm">
+		<table class = "table table-striped table-sm">
 		
 			<thead>
 				<tr style = "background-color: #000000; color: #ffffff;">
 					<td id = "current_day" style = "background-color: #15ff15; color: #150015">
-						Today
+						${days[0]}
 					</td>
 					<td>Country</td>
 					<td>Country (ISO code)</td>
@@ -52,14 +52,14 @@ crossorigin="anonymous">
 					<td>Humidity</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id = "display_weather">
 				
 				<c:forEach items = "${five_day}" var = "fiveDay">
 						
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = 'day' value = '${list.day}'/>
-						<c:if test = "${day == 'Saturday'}">
+						<c:if test = "${day == 'Monday'}">
 							<tr>
 								<td>${list.time}</td>
 								<td>${list.country}</td>

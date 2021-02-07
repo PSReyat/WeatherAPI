@@ -1,3 +1,7 @@
+/*
+ * Used Joda-Time library
+ * Used JSTL
+ */
 package com.weatherapi.controller;
 
 import java.io.IOException;
@@ -54,7 +58,6 @@ public class WeatherAPIController {
 		
 		if(weather != null) {
 			model.addAttribute("weather", weather);
-			
 			return "weather_for_city";
 		}else {
 			model.addAttribute("error", true);
@@ -82,11 +85,6 @@ public class WeatherAPIController {
 		
 		return "five_day_forecast";
 		
-	}
-	
-	@GetMapping("/")
-	public String refreshForecast() {
-		return "five_day_forecast";
 	}
 	
 	public void getDays(Map<String, List<FiveDayHourlyWeather>> fiveDay) {
