@@ -29,12 +29,7 @@ public class WeatherAPIController {
 	WeatherService wService;
 	
 	private List<String> days;
-	
-	private List<FiveDayHourlyWeather> day1;
-	private List<FiveDayHourlyWeather> day2;
-	private List<FiveDayHourlyWeather> day3;
-	private List<FiveDayHourlyWeather> day4;
-	private List<FiveDayHourlyWeather> day5;
+	private List<List<FiveDayHourlyWeather>> weatherData;
 	
 	//Sets the search page and loads the ISO codes table.
 	@RequestMapping("/")
@@ -78,10 +73,12 @@ public class WeatherAPIController {
 		Map<String, List<FiveDayHourlyWeather>> fiveDay;
 		fiveDay = this.wService.getHourlyWeather(city, country);
 		getDays(fiveDay);
+		getDataForEachDay(fiveDay);
 		
 		model.addAttribute("five_day", fiveDay);
 		model.addAttribute("city", city);
 		model.addAttribute("days", this.days);
+		model.addAttribute("weather_data", this.weatherData);
 		
 		return "five_day_forecast";
 		
@@ -99,4 +96,15 @@ public class WeatherAPIController {
 		
 	}
 	
+	public void getDataForEachDay(Map<String, List<FiveDayHourlyWeather>> fiveDay) {
+		
+		this.weatherData = new ArrayList<>();
+		
+		for(String list : fiveDay.keySet()) {
+			
+			this.weatherData.add(fiveDay.get(list));
+			
+		}
+		
+	}
 }

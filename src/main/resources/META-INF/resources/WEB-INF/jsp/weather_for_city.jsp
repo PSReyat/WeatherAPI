@@ -13,7 +13,7 @@ crossorigin="anonymous">
 </head>
 <body>
 	
-	<h3 style = "background-color: #bdbd4f; padding-bottom: 5px;">${weather.city}'s current weather</h3>
+	<h3 style = "background-color: #15ffaa; padding-bottom: 5px;">${weather.city}'s current weather</h3>
 
 	<div class = "card-body">
 		

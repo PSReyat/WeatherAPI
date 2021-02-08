@@ -14,7 +14,7 @@ crossorigin="anonymous">
 </head>
 <body>
 	
-	<h3 style = "background-color: #bdbd4f; padding-bottom: 5px;">${city}'s five day weather forecast</h3>
+	<h3 style = "background-color: #15ffaa; padding-bottom: 5px;">${city}'s five day weather forecast</h3>
 	
 	<div class = "card-body">
 	
@@ -38,7 +38,7 @@ crossorigin="anonymous">
 		
 			<thead>
 				<tr style = "background-color: #000000; color: #ffffff;">
-					<td id = "current_day" style = "background-color: #15ff15; color: #150015">
+					<td id = "current_day" style = "background-color: #15ffaa; color: #150015">
 						${days[0]}
 					</td>
 					<td>Country</td>
@@ -54,12 +54,65 @@ crossorigin="anonymous">
 			</thead>
 			<tbody id = "display_weather">
 				
-				<c:forEach items = "${five_day}" var = "fiveDay">
+				<c:set var = "day0" value = "${days[0]}"/>
+				<c:set var = "day1" value = "${days[1]}"/>
+				<c:set var = "day2" value = "${days[2]}"/>
+				<c:set var = "day3" value = "${days[3]}"/>
+				<c:set var = "day4" value = "${days[4]}"/>
+				
+				<c:set var = "chosen_day" value = "Monday"/>
+			
+				<c:choose>
+					<c:when test = "${chosen_day == day0}">
+						<c:set var = "data" value = "${weather_data[0]}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day1}">
+						<c:set var = "data" value = "${weather_data[1]}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day2}">
+						<c:set var = "data" value = "${weather_data[2]}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day3}">
+						<c:set var = "data" value = "${weather_data[3]}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day4}">
+						<c:set var = "data" value = "${weather_data[4]}"/>
+					</c:when>
+				</c:choose>
+				
+				<c:forEach items = "${data}" var = "list">
+					<tr>
+						<td>${list.time}</td>
+						<td>${list.country}</td>
+						<td>${list.countryISOCode}</td>
+						<td>${list.temperature}</td>
+						<td>${list.tempMin}</td>
+						<td>${list.tempMax}</td>
+						<td>${list.weather}</td>
+						<td>${list.weatherDesc}</td>
+						<td>${list.pressure}</td>
+						<td>${list.humidity}</td>
+					</tr>
+				</c:forEach>
+				
+			</tbody>
+		
+		</table>
+	
+	</div>
+	
+	<script src = "/js/five-day-forecast.js"></script>
+	
+</body>
+</html>
+
+<!-- 
+<c:forEach items = "${five_day}" var = "fiveDay">
 						
 					<c:forEach items = "${fiveDay.value}" var = "list">
 						
 						<c:set var = 'day' value = '${list.day}'/>
-						<c:if test = "${day == 'Monday'}">
+						<c:if test = "${day == 'Tuesday'}">
 							<tr>
 								<td>${list.time}</td>
 								<td>${list.country}</td>
@@ -76,15 +129,4 @@ crossorigin="anonymous">
 						
 					</c:forEach>
 					
-				</c:forEach>
-				
-			</tbody>
-		
-		</table>
-	
-	</div>
-	
-	<script src = "/js/five-day-forecast.js"></script>
-	
-</body>
-</html>
+				</c:forEach> -->
