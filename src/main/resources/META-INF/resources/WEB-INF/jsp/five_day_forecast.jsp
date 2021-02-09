@@ -22,13 +22,31 @@ crossorigin="anonymous">
 			
 			<tbody>
 				<tr>
-					<c:forEach items = "${days}" var = "days">
-						<td >
-							<button id = "days" class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days}" onclick = "chooseDay(value)">
-								${days}
-							</button>
-						</td>
-					</c:forEach>
+					<td>
+						<button class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days[0]}" onclick = "showDay0(value)">
+							${days[0]}
+						</button>
+					</td>
+					<td>
+						<button class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days[1]}" onclick = "showDay1(value)">
+							${days[1]}
+						</button>
+					</td>
+					<td>
+						<button class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days[2]}" onclick = "showDay2(value)">
+							${days[2]}
+						</button>
+					</td>
+					<td>
+						<button class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days[3]}" onclick = "showDay3(value)">
+							${days[3]}
+						</button>
+					</td>
+					<td>
+						<button class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days[4]}" onclick = "showDay4(value)">
+							${days[4]}
+						</button>
+					</td>
 				</tr>
 			</tbody>
 		
@@ -52,35 +70,10 @@ crossorigin="anonymous">
 					<td>Humidity</td>
 				</tr>
 			</thead>
-			<tbody id = "display_weather">
-				
-				<c:set var = "day0" value = "${days[0]}"/>
-				<c:set var = "day1" value = "${days[1]}"/>
-				<c:set var = "day2" value = "${days[2]}"/>
-				<c:set var = "day3" value = "${days[3]}"/>
-				<c:set var = "day4" value = "${days[4]}"/>
-				
-				<c:set var = "chosen_day" value = "Monday"/>
 			
-				<c:choose>
-					<c:when test = "${chosen_day == day0}">
-						<c:set var = "data" value = "${weather_data[0]}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day1}">
-						<c:set var = "data" value = "${weather_data[1]}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day2}">
-						<c:set var = "data" value = "${weather_data[2]}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day3}">
-						<c:set var = "data" value = "${weather_data[3]}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day4}">
-						<c:set var = "data" value = "${weather_data[4]}"/>
-					</c:when>
-				</c:choose>
-				
-				<c:forEach items = "${data}" var = "list">
+			<!-- Today -->
+			<tbody id = "day0">
+				<c:forEach items = "${weather_data[0]}" var = "list">
 					<tr>
 						<td>${list.time}</td>
 						<td>${list.country}</td>
@@ -94,9 +87,80 @@ crossorigin="anonymous">
 						<td>${list.humidity}</td>
 					</tr>
 				</c:forEach>
-				
 			</tbody>
-		
+			
+			<!-- Tomorrow -->
+			<tbody id = "day1" style = "visibility: collapse">
+				<c:forEach items = "${weather_data[1]}" var = "list">
+					<tr>
+						<td>${list.time}</td>
+						<td>${list.country}</td>
+						<td>${list.countryISOCode}</td>
+						<td>${list.temperature}</td>
+						<td>${list.tempMin}</td>
+						<td>${list.tempMax}</td>
+						<td>${list.weather}</td>
+						<td>${list.weatherDesc}</td>
+						<td>${list.pressure}</td>
+						<td>${list.humidity}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			
+			<!-- 3rd day -->
+			<tbody id = "day2" style = "visibility: collapse">
+				<c:forEach items = "${weather_data[2]}" var = "list">
+					<tr>
+						<td>${list.time}</td>
+						<td>${list.country}</td>
+						<td>${list.countryISOCode}</td>
+						<td>${list.temperature}</td>
+						<td>${list.tempMin}</td>
+						<td>${list.tempMax}</td>
+						<td>${list.weather}</td>
+						<td>${list.weatherDesc}</td>
+						<td>${list.pressure}</td>
+						<td>${list.humidity}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			
+			<!-- 4th day -->
+			<tbody id = "day3" style = "visibility: collapse">
+				<c:forEach items = "${weather_data[3]}" var = "list">
+					<tr>
+						<td>${list.time}</td>
+						<td>${list.country}</td>
+						<td>${list.countryISOCode}</td>
+						<td>${list.temperature}</td>
+						<td>${list.tempMin}</td>
+						<td>${list.tempMax}</td>
+						<td>${list.weather}</td>
+						<td>${list.weatherDesc}</td>
+						<td>${list.pressure}</td>
+						<td>${list.humidity}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			
+			<!-- 5th day -->
+			<tbody id = "day4" style = "visibility: collapse">
+				<c:forEach items = "${weather_data[4]}" var = "list">
+					<tr>
+						<td>${list.time}</td>
+						<td>${list.country}</td>
+						<td>${list.countryISOCode}</td>
+						<td>${list.temperature}</td>
+						<td>${list.tempMin}</td>
+						<td>${list.tempMax}</td>
+						<td>${list.weather}</td>
+						<td>${list.weatherDesc}</td>
+						<td>${list.pressure}</td>
+						<td>${list.humidity}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			
 		</table>
 	
 	</div>
@@ -130,3 +194,30 @@ crossorigin="anonymous">
 					</c:forEach>
 					
 				</c:forEach> -->
+				
+<!-- 
+<c:set var = "day0" value = "${days[0]}"/>
+				<c:set var = "day1" value = "${days[1]}"/>
+				<c:set var = "day2" value = "${days[2]}"/>
+				<c:set var = "day3" value = "${days[3]}"/>
+				<c:set var = "day4" value = "${days[4]}"/>
+
+<c:set var = "chosen_day" value = "Wednesday"/>
+			
+				<c:choose>
+					<c:when test = "${chosen_day == day0}">
+						<c:set var = "data" value = "${}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day1}">
+						<c:set var = "data" value = "${weather_data[1]}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day2}">
+						<c:set var = "data" value = "${weather_data[2]}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day3}">
+						<c:set var = "data" value = "${weather_data[3]}"/>
+					</c:when>
+					<c:when test = "${chosen_day == day4}">
+						<c:set var = "data" value = "${weather_data[4]}"/>
+					</c:when>
+				</c:choose> -->

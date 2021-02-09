@@ -70,8 +70,7 @@ public class WeatherAPIController {
 		
 		city = city.substring(0, 1).toUpperCase() + city.substring(1);
 		
-		Map<String, List<FiveDayHourlyWeather>> fiveDay;
-		fiveDay = this.wService.getHourlyWeather(city, country);
+		Map<String, List<FiveDayHourlyWeather>> fiveDay = this.wService.getHourlyWeather(city, country);
 		getDays(fiveDay);
 		getDataForEachDay(fiveDay);
 		

@@ -1,11 +1,47 @@
 /**
  * 
  */
-function chooseDay(day){
+function showDay0(day){
 	document.getElementById("current_day").innerHTML = day;
-	console.log(day);
+	document.getElementById("day0").style.visibility = "";
+	document.getElementById("day1").style.visibility = "collapse";
+	document.getElementById("day2").style.visibility = "collapse";
+	document.getElementById("day3").style.visibility = "collapse";
+	document.getElementById("day4").style.visibility = "collapse";
 }
 
+function showDay1(day){
+	document.getElementById("current_day").innerHTML = day;
+	document.getElementById("day0").style.visibility = "collapse";
+	document.getElementById("day1").style.visibility = "";
+	document.getElementById("day2").style.visibility = "collapse";
+	document.getElementById("day3").style.visibility = "collapse";
+	document.getElementById("day4").style.visibility = "collapse";
+}
 
-//document.body.insertAdjacentHTML("afterbegin", "<c:set var = 'chosen_day' value = '"+ day +"'/>");
-//document.getElementById("display_weather").insertAdjacentHTML("afterbegin", "<c:forEach items = '${five_day}' var = 'fiveDay'><c:forEach items = '${fiveDay.value}' var = 'list'><c:set var = 'day' value = '${list.day}'/><c:if test = '${day == \""+day+"\"}'><tr><td>${list.time}</td><td>${list.country}</td><td>${list.countryISOCode}</td><td>${list.temperature}</td><td>${list.tempMin}</td><td>${list.tempMax}</td><td>${list.weather}</td><td>${list.weatherDesc}</td><td>${list.pressure}</td><td>${list.humidity}</td></tr></c:if></c:forEach></c:forEach>");
+function showDay2(day){
+	document.getElementById("current_day").innerHTML = day;
+	document.getElementById("day0").style.visibility = "collapse";
+	document.getElementById("day1").style.visibility = "collapse";
+	document.getElementById("day2").style.visibility = "";
+	document.getElementById("day3").style.visibility = "collapse";
+	document.getElementById("day4").style.visibility = "collapse";
+}
+
+function showDay3(day){
+	document.getElementById("current_day").innerHTML = day;
+	document.getElementById("day0").style.visibility = "collapse";
+	document.getElementById("day1").style.visibility = "collapse";
+	document.getElementById("day2").style.visibility = "collapse";
+	document.getElementById("day3").style.visibility = "";
+	document.getElementById("day4").style.visibility = "collapse";
+}
+
+function showDay4(day){
+	document.getElementById("current_day").innerHTML = day;
+	document.getElementById("day0").style.visibility = "collapse";
+	document.getElementById("day1").style.visibility = "collapse";
+	document.getElementById("day2").style.visibility = "collapse";
+	document.getElementById("day3").style.visibility = "collapse";
+	document.getElementById("day4").style.visibility = "";
+}
