@@ -57,7 +57,7 @@ crossorigin="anonymous">
 			<thead>
 				<tr style = "background-color: #000000; color: #ffffff;">
 					<td id = "current_day" style = "background-color: #15ffaa; color: #150015">
-						${days[0]}
+						${days[0]} (Today)
 					</td>
 					<td>Country</td>
 					<td>Country (ISO code)</td>

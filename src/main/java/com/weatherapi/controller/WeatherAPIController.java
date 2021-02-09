@@ -55,10 +55,11 @@ public class WeatherAPIController {
 			model.addAttribute("weather", weather);
 			return "weather_for_city";
 		}else {
+			CountryCodes codes = new CountryCodes();
 			model.addAttribute("error", true);
+			model.addAttribute("codes", codes.getAllCountryCodes());
+			return "weather_view";
 		}
-		
-		return "weather_view";
 		
 	}
 	
@@ -71,15 +72,23 @@ public class WeatherAPIController {
 		city = city.substring(0, 1).toUpperCase() + city.substring(1);
 		
 		Map<String, List<FiveDayHourlyWeather>> fiveDay = this.wService.getHourlyWeather(city, country);
-		getDays(fiveDay);
-		getDataForEachDay(fiveDay);
 		
-		model.addAttribute("five_day", fiveDay);
-		model.addAttribute("city", city);
-		model.addAttribute("days", this.days);
-		model.addAttribute("weather_data", this.weatherData);
-		
-		return "five_day_forecast";
+		if(!fiveDay.isEmpty()) {
+			getDays(fiveDay);
+			getDataForEachDay(fiveDay);
+			model.addAttribute("five_day", fiveDay);
+			model.addAttribute("city", city);
+			model.addAttribute("days", this.days);
+			model.addAttribute("weather_data", this.weatherData);
+			
+			return "five_day_forecast";
+		}else {
+			CountryCodes codes = new CountryCodes();
+			model.addAttribute("error", true);
+			model.addAttribute("codes", codes.getAllCountryCodes());
+			
+			return "weather_view";
+		}
 		
 	}
 	

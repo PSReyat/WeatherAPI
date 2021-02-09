@@ -108,8 +108,8 @@ public class WeatherServiceImpl implements WeatherService{
 			
 			List<FiveDayHourlyWeather> weatherPerThreeHoursPerDay = new ArrayList<>();
 			this.weatherForFiveDays = new LinkedHashMap<>();
-			JSONObject obj = new JSONObject(this.json);
 			FiveDayHourlyWeather hourlyWeather;
+			JSONObject obj = new JSONObject(this.json);
 			DateTime dt = new DateTime(new Date());
 			DateTime.Property dtp = dt.dayOfWeek();
 			String day = dtp.getAsText();

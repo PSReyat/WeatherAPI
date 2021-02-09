@@ -35,6 +35,10 @@ crossorigin="anonymous">
 	
 	</div>
 	
+	<c:if test = "${error}">
+		<p style = "color: red; text-align: center;">Invalid entry.</p>
+	</c:if>
+	
 	<!-- ISO codes -->
 		
 	<div id = "iso_codes" class = "card-body" align = "center">

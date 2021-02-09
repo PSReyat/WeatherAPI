@@ -2,7 +2,7 @@
  * 
  */
 function showDay0(day){
-	document.getElementById("current_day").innerHTML = day;
+	document.getElementById("current_day").innerHTML = day + " (Today)";
 	document.getElementById("day0").style.visibility = "";
 	document.getElementById("day1").style.visibility = "collapse";
 	document.getElementById("day2").style.visibility = "collapse";
@@ -11,7 +11,7 @@ function showDay0(day){
 }
 
 function showDay1(day){
-	document.getElementById("current_day").innerHTML = day;
+	document.getElementById("current_day").innerHTML = day + " (Tomorrow)";
 	document.getElementById("day0").style.visibility = "collapse";
 	document.getElementById("day1").style.visibility = "";
 	document.getElementById("day2").style.visibility = "collapse";
