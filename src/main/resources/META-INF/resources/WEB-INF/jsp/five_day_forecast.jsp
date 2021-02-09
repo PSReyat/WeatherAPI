@@ -25,11 +25,13 @@ crossorigin="anonymous">
 					<td>
 						<button class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days[0]}" onclick = "showDay0(value)">
 							${days[0]}
+							<p style = "text-align: center; font-size: 15px; padding-top: 5px; padding-bottom: 5px;">Today</p>
 						</button>
 					</td>
 					<td>
 						<button class = "btn btn-info btn-lg" style = "width: 100%;" value = "${days[1]}" onclick = "showDay1(value)">
 							${days[1]}
+							<p style = "text-align: center; font-size: 15px; padding-top: 5px; padding-bottom: 5px; color: ">Tomorrow</p>
 						</button>
 					</td>
 					<td>
@@ -52,7 +54,7 @@ crossorigin="anonymous">
 		
 		</table>
 		
-		<table class = "table table-striped table-sm">
+		<table class = "table table-striped table-sm" style = "table-layout: fixed; width: 100%;">
 		
 			<thead>
 				<tr style = "background-color: #000000; color: #ffffff;">
@@ -169,55 +171,3 @@ crossorigin="anonymous">
 	
 </body>
 </html>
-
-<!-- 
-<c:forEach items = "${five_day}" var = "fiveDay">
-						
-					<c:forEach items = "${fiveDay.value}" var = "list">
-						
-						<c:set var = 'day' value = '${list.day}'/>
-						<c:if test = "${day == 'Tuesday'}">
-							<tr>
-								<td>${list.time}</td>
-								<td>${list.country}</td>
-								<td>${list.countryISOCode}</td>
-								<td>${list.temperature}</td>
-								<td>${list.tempMin}</td>
-								<td>${list.tempMax}</td>
-								<td>${list.weather}</td>
-								<td>${list.weatherDesc}</td>
-								<td>${list.pressure}</td>
-								<td>${list.humidity}</td>
-							</tr>
-						</c:if>
-						
-					</c:forEach>
-					
-				</c:forEach> -->
-				
-<!-- 
-<c:set var = "day0" value = "${days[0]}"/>
-				<c:set var = "day1" value = "${days[1]}"/>
-				<c:set var = "day2" value = "${days[2]}"/>
-				<c:set var = "day3" value = "${days[3]}"/>
-				<c:set var = "day4" value = "${days[4]}"/>
-
-<c:set var = "chosen_day" value = "Wednesday"/>
-			
-				<c:choose>
-					<c:when test = "${chosen_day == day0}">
-						<c:set var = "data" value = "${}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day1}">
-						<c:set var = "data" value = "${weather_data[1]}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day2}">
-						<c:set var = "data" value = "${weather_data[2]}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day3}">
-						<c:set var = "data" value = "${weather_data[3]}"/>
-					</c:when>
-					<c:when test = "${chosen_day == day4}">
-						<c:set var = "data" value = "${weather_data[4]}"/>
-					</c:when>
-				</c:choose> -->

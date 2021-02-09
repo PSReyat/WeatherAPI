@@ -1,6 +1,6 @@
 package com.weatherapi.countrycodes;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -10,7 +10,7 @@ public class CountryCodes {
 	
 	public CountryCodes() {
 		
-		this.countries = new HashMap<>();
+		this.countries = new LinkedHashMap<>();
 	    for (String iso : Locale.getISOCountries()) {
 	        Locale l = new Locale("", iso);
 	        countries.put(l.getDisplayCountry(), iso);

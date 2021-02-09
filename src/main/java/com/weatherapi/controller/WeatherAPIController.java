@@ -76,7 +76,6 @@ public class WeatherAPIController {
 		if(!fiveDay.isEmpty()) {
 			getDays(fiveDay);
 			getDataForEachDay(fiveDay);
-			model.addAttribute("five_day", fiveDay);
 			model.addAttribute("city", city);
 			model.addAttribute("days", this.days);
 			model.addAttribute("weather_data", this.weatherData);
