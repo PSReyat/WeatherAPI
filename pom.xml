@@ -12,8 +12,8 @@
 	<groupId>com.weatherapi</groupId>
 	<artifactId>WeatherAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>WeatherAPI</name>
+	<packaging>war</packaging>
+	<name>weatherapi</name>
 	<description>A weather API that uses Open Weather Map API services</description>
 
 	<properties>
@@ -93,6 +93,15 @@
 					<fork>true</fork>
 					<executable>C:\Program Files\Java\jdk-11.0.6\bin</executable>
 				</configuration>
+				<executions>
+	                <execution>
+	                    <id>default-war</id>
+	                    <phase>prepare-package</phase>
+	                    <configuration>
+	                        <failOnMissingWebXml>false</failOnMissingWebXml>
+	                    </configuration>
+	                </execution>
+	            </executions>
 			</plugin>
 		</plugins>
 	</build>
