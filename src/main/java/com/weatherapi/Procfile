@@ -1,1 +1,1 @@
-web: java -jar target/infinite-temple-80560.jar
+war:deploy target/WeatherAPI-0.0.1-SNAPSHOT.war
