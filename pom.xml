@@ -90,6 +90,8 @@
 					<source>11</source>
 					<target>11</target>
 					<encoding>UTF-8</encoding>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk-11.0.6\bin</executable>
 				</configuration>
 			</plugin>
 		</plugins>
