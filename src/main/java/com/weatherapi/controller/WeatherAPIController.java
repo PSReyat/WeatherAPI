@@ -41,7 +41,7 @@ public class WeatherAPIController implements ErrorController{
 		
 		model.addAttribute("codes", codes.getAllCountryCodes());
 		
-		return "weather_vie";
+		return "weather_view";
 		
 	}
 	
