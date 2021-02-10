@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,13 +24,31 @@ import com.weatherapi.service.WeatherService;
 
 @Controller
 @RequestMapping("/")
-public class WeatherAPIController {
+public class WeatherAPIController implements ErrorController{
+	
+	private static final String ERROR_PATH = "/error";
 	
 	@Autowired
 	WeatherService wService;
 	
 	private List<String> days;
 	private List<List<FiveDayHourlyWeather>> weatherData;
+	
+	@RequestMapping(value = ERROR_PATH)
+	public String errorPage(Model model) {
+		
+		CountryCodes codes = new CountryCodes();
+		
+		model.addAttribute("codes", codes.getAllCountryCodes());
+		
+		return "weather_view";
+		
+	}
+	
+	@Override
+	public String getErrorPath() {
+		return ERROR_PATH;
+	}
 	
 	//Sets the search page and loads the ISO codes table.
 	@RequestMapping("/")
@@ -114,5 +133,6 @@ public class WeatherAPIController {
 		}
 		
 	}
+
 
 }
