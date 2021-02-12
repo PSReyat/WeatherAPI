@@ -92,14 +92,6 @@
 					<encoding>UTF-8</encoding>
 					<fork>true</fork>
 					<executable>C:\Program Files\Java\jdk-11.0.6\bin</executable>
-					<artifactItems>
-                        <artifactItem>
-                            <groupId>com.heroku</groupId>
-                            <artifactId>webapp-runner</artifactId>
-                            <version>9.0.41.0</version>
-                            <destFileName>webapp-runner.jar</destFileName>
-                        </artifactItem>
-                    </artifactItems>
 				</configuration>
 				<executions>
 	                <execution>
@@ -107,6 +99,14 @@
 	                    <phase>prepare-package</phase>
 	                    <configuration>
 	                        <failOnMissingWebXml>false</failOnMissingWebXml>
+	                        <artifactItems>
+		                        <artifactItem>
+		                            <groupId>com.heroku</groupId>
+		                            <artifactId>webapp-runner</artifactId>
+		                            <version>9.0.41.0</version>
+		                            <destFileName>webapp-runner.jar</destFileName>
+		                        </artifactItem>
+		                    </artifactItems>
 	                    </configuration>
 	                </execution>
 	            </executions>
