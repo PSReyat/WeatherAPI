@@ -43,7 +43,7 @@ public class WeatherServiceImpl implements WeatherService{
 		return this.weather;
 		
 	}
-		
+	
 	//Parses the JSONObject and retrieves the weather data.
 	public void setWeatherParameters() {
 		
