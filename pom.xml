@@ -95,8 +95,6 @@
 				</configuration>
 				<executions>
 	                <execution>
-	                    <id>default-war</id>
-	                    <phase>prepare-package</phase>
 	                    <configuration>
 	                        <failOnMissingWebXml>false</failOnMissingWebXml>
 	                        <artifactItems>
