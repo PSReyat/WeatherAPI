@@ -18,7 +18,7 @@ crossorigin="anonymous">
 
 <header>
 	<p>
-		Created by Parminder Reyat | 
+		Created by Parminder Reyat | Using Open Weather Map API from RapidAPI | 
 		<a href = "https://github.com/PSReyat/WeatherAPI" target = "_blank">GitHub for code</a>
 	</p>
 </header>
