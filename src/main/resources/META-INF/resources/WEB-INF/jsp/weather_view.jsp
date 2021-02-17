@@ -16,6 +16,13 @@ crossorigin="anonymous">
 </head>
 <body>
 
+<header>
+	<p>
+		Created by Parminder Reyat | 
+		<a href = "https://github.com/PSReyat/WeatherAPI" target = "_blank">GitHub for code</a>
+	</p>
+</header>
+
 	<!-- Search weather -->
 
 	<div id = "weather_search" class = "card-body" align = "center">
