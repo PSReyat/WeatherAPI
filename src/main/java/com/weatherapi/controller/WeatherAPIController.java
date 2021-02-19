@@ -1,7 +1,3 @@
-/*
- * Used Joda-Time library
- * Used JSTL
- */
 package com.weatherapi.controller;
 
 import java.io.IOException;

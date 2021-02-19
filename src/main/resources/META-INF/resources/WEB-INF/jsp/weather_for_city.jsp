@@ -12,6 +12,10 @@ crossorigin="anonymous">
 
 </head>
 <body>
+
+	<header>
+		<a href = "/">Return to weather search</a>
+	</header>
 	
 	<h3 style = "background-color: #15ffaa; padding-bottom: 5px;">${weather.city}'s current weather</h3>
 
