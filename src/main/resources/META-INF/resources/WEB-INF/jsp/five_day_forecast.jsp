@@ -14,8 +14,9 @@ crossorigin="anonymous">
 </head>
 <body>
 
-	<header style = "background-color: #15ffaa; padding-bottom: 5px;">
-		${city}'s five day weather forecast <a href = "/">Return to weather search</a>
+	<header style = "background-color: #15ffaa; text-align: center;">
+		<strong style = "font-size: 30px;">${city}'s five day weather forecast</strong><br/>
+		<a href = "/" class = "btn btn-link">Return to weather search</a>
 	</header>
 	
 	<div class = "card-body">
