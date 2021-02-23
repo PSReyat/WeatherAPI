@@ -12,7 +12,8 @@ import okhttp3.Response;
 public class WeatherDAOImpl implements WeatherDAO{
 	
 	private static final String RAPID_API_KEY = "2e0f5e5587msh5b20c6d40614898p14e8aejsn9eec5fb064d8";
-
+	
+	//Get current weather for any given city.
 	@Override
 	public String getWeatherDataCity(String city, String country) throws IOException {
 
@@ -20,6 +21,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 	}
 	
+	//Get a five day forecast in 3 hour increments for any given city.
 	@Override
 	public String getHourlyWeatherData(String city, String country) throws IOException {
 		
