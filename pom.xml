@@ -96,7 +96,7 @@
 						<phase>package</phase>
                 		<goals>
                 			<goal>
-                				copy
+                				package
             				</goal>
            				</goals>
 						<configuration>
