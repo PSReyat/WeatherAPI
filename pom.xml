@@ -93,12 +93,7 @@
 				<executions>
 					<execution>
 						<id>default-war</id>
-						<phase>package</phase>
-                		<goals>
-                			<goal>
-                				package
-            				</goal>
-           				</goals>
+						<phase>prepare-package</phase>
 						<configuration>
 							<failOnMissingWebXml>false</failOnMissingWebXml>
 							<artifactItems>
