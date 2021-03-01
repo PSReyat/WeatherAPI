@@ -92,6 +92,9 @@
 				</configuration>
 				<executions>
 					<execution>
+						<goals>
+	                        <goal>repackage</goal>
+	                    </goals>
 						<id>default-war</id>
 						<phase>prepare-package</phase>
 						<configuration>
