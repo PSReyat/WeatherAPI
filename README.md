@@ -1,9 +1,7 @@
 # WeatherAPI
 An API I've created to find out the current weather for a given location
 ## State
-- In progress
-Currently working on it. I will update the README when I have completed it and provide proper information on the application.
-Update: Finished base project. Refining it and then will try to deploy it to Heroku.
+- Update: Finished base project. Refining it and then will try to deploy it to Heroku.
 ## To-do list
 - [x] Update the weather_for_city jsp page. 
 - [x] Add Model objects to controller to display objects to the view.
