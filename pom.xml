@@ -92,8 +92,8 @@
 				</configuration>
 				<executions>
 					<execution>
+						<id>default-war</id>
 						<phase>prepare-package</phase>
-						<goals><goal>copy</goal></goals>
 						<configuration>
 							<failOnMissingWebXml>false</failOnMissingWebXml>
 							<artifactItems>
