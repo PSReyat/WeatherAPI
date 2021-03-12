@@ -90,7 +90,7 @@
 						<id>default-war</id>
 						<phase>prepare-package</phase>
 						<goals>
-	                        <goal>repackage</goal>
+	                        <goal>package</goal>
 	                    </goals>
 						<configuration>
 							<failOnMissingWebXml>false</failOnMissingWebXml>
