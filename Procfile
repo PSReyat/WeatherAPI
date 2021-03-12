@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp -jar target/webapp-runner.jar --server.port=$PORT target/WeatherAPI-0.0.1-SNAPSHOT.war
+web: java $JAVA_OPTS -jar target/webapp-runner.jar --server.port=$PORT target/WeatherAPI-0.0.1-SNAPSHOT.war
