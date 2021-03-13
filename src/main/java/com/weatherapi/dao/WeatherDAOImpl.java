@@ -30,7 +30,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 	}
 	
 	//Gets weather data for current time
-	public String connectAPICity(String city, String country) throws IOException {
+	private String connectAPICity(String city, String country) throws IOException {
 		
 		OkHttpClient client = new OkHttpClient();
 		Request request;
@@ -55,7 +55,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 	}
 	
-	public String connectFiveDayForecast(String city, String country) throws IOException {
+	private String connectFiveDayForecast(String city, String country) throws IOException {
 		
 		OkHttpClient client = new OkHttpClient();
 
@@ -70,7 +70,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 	}
 	
-	public String getFiveDayResponse(OkHttpClient client, Request request) throws IOException {
+	private String getFiveDayResponse(OkHttpClient client, Request request) throws IOException {
 		
 		Response response = client.newCall(request).execute();
 		
@@ -80,7 +80,7 @@ public class WeatherDAOImpl implements WeatherDAO{
 		
 	}
 	
-	public String getResponse(OkHttpClient client, Request request) throws IOException {
+	private String getResponse(OkHttpClient client, Request request) throws IOException {
 		
 		Response response = client.newCall(request).execute();
 		

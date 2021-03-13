@@ -35,7 +35,7 @@ public class WeatherServiceImpl implements WeatherService{
 	}
 	
 	//Retrieves weather data in JSON format and assigns it to a String variable.
-	public Weather jsonParseCityWeather(String city, String country) throws IOException {
+	private Weather jsonParseCityWeather(String city, String country) throws IOException {
 		
 		this.json = this.wDAO.getWeatherDataCity(city, country);
 		setWeatherParameters();
@@ -45,7 +45,7 @@ public class WeatherServiceImpl implements WeatherService{
 	}
 	
 	//Parses the JSONObject and retrieves the weather data.
-	public void setWeatherParameters() {
+	private void setWeatherParameters() {
 		
 		try {
 			//Parsing JSON object and retrieving relevant information.
@@ -93,7 +93,7 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
-	public Map<String, List<FiveDayHourlyWeather>> jsonParseHourlyWeather(String city, String country) throws IOException {
+	private Map<String, List<FiveDayHourlyWeather>> jsonParseHourlyWeather(String city, String country) throws IOException {
 		
 		this.json = this.wDAO.getHourlyWeatherData(city, country);
 		setHourlyWeatherParameters();
@@ -102,7 +102,7 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
-	public void setHourlyWeatherParameters() {
+	private void setHourlyWeatherParameters() {
 		
 		try {
 			
@@ -160,13 +160,13 @@ public class WeatherServiceImpl implements WeatherService{
 		
 	}
 	
-	public String getCity(JSONObject obj) {
+	private String getCity(JSONObject obj) {
 		String name = obj.getJSONObject("city").getString("name");
 		
 		return name;
 	}
 	
-	public String getCountry(JSONObject obj) {
+	private String getCountry(JSONObject obj) {
 		String country = obj.getJSONObject("city").getString("country");
 		
 		return country;
