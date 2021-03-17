@@ -20,9 +20,9 @@ import com.weatherapi.service.WeatherService;
 
 @Controller
 @RequestMapping("/")
-public class WeatherAPIController{
+public class WeatherAPIController implements ErrorController{
 	
-	//private static final String ERROR_PATH = "/error";
+	private static final String ERROR_PATH = "/error";
 	
 	@Autowired
 	WeatherService wService;
@@ -30,21 +30,21 @@ public class WeatherAPIController{
 	private List<String> days;
 	private List<List<FiveDayHourlyWeather>> weatherData;
 	
-//	@RequestMapping(value = ERROR_PATH)
-//	public String errorPage(Model model) {
-//		
-//		CountryCodes codes = new CountryCodes();
-//		
-//		model.addAttribute("codes", codes.getAllCountryCodes());
-//		
-//		return "weather_view";
-//		
-//	}
-//	
-//	@Override
-//	public String getErrorPath() {
-//		return ERROR_PATH;
-//	}
+	@RequestMapping(value = ERROR_PATH)
+	public String errorPage(Model model) {
+		
+		CountryCodes codes = new CountryCodes();
+		
+		model.addAttribute("codes", codes.getAllCountryCodes());
+		
+		return "weather_view";
+		
+	}
+	
+	@Override
+	public String getErrorPath() {
+		return ERROR_PATH;
+	}
 	
 	//Sets the search page and loads the ISO codes table.
 	@RequestMapping("/")
