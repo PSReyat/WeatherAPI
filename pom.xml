@@ -11,7 +11,7 @@
 	<groupId>com.weatherapi</groupId>
 	<artifactId>WeatherAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>weatherapi</name>
 	<description>A weather API that uses Open Weather Map API services</description>
 
