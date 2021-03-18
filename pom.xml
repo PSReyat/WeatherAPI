@@ -73,9 +73,9 @@
 		</dependency>
 		<!-- WepApp Runner Heroku -->
 		<dependency>
-		    <groupId>com.heroku</groupId>
-		    <artifactId>webapp-runner-main</artifactId>
-		    <version>9.0.41.0</version>
+			<groupId>com.heroku</groupId>
+			<artifactId>webapp-runner-main</artifactId>
+			<version>9.0.41.0</version>
 		</dependency>
 	</dependencies>
 
@@ -93,8 +93,9 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>default-war</id>
-						<phase>prepare-package</phase>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
 						<configuration>
 							<failOnMissingWebXml>false</failOnMissingWebXml>
 							<artifactItems>
@@ -108,7 +109,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>	
+			</plugin>
 		</plugins>
 	</build>
 
