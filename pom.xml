@@ -93,9 +93,6 @@
 				</configuration>
 				<executions>
 					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
 						<configuration>
 							<failOnMissingWebXml>false</failOnMissingWebXml>
 							<artifactItems>
