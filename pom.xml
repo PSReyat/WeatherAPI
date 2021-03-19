@@ -71,12 +71,6 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.10.9</version>
 		</dependency>
-		<!-- WepApp Runner Heroku -->
-		<dependency>
-			<groupId>com.heroku</groupId>
-			<artifactId>webapp-runner-main</artifactId>
-			<version>9.0.41.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -91,21 +85,6 @@
 					<fork>true</fork>
 					<executable>C:\Program Files\Java\jdk-11.0.10</executable>
 				</configuration>
-				<executions>
-					<execution>
-						<configuration>
-							<failOnMissingWebXml>false</failOnMissingWebXml>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.heroku</groupId>
-									<artifactId>webapp-runner</artifactId>
-									<version>9.0.41.0</version>
-									<destFileName>webapp-runner.jar</destFileName>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
