@@ -15,7 +15,7 @@ This project helped me understand the vast utility of APIs and their benefits. B
 ![alt-text](https://media.giphy.com/media/aTWkdighzUiwfzxrA5/giphy.gif)
 - Searching a city with the same name but different country (London in the USA example)
 
-![alt-text](https://media.giphy.com/media/govodXEO4cf9Vx6DPJ/giphy.gif)
+![alt-text](https://media.giphy.com/media/gaTYEllI5rxhxAMgFX/giphy.gif)
 - Five day forecast
 
 ![alt-text](https://media.giphy.com/media/gt0hmdGvHT0lnC5wAU/giphy.gif)
