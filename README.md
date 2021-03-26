@@ -14,7 +14,7 @@ I wanted to use APIs to display weather information for any city in the world. T
 ![alt-text](https://media.giphy.com/media/aTWkdighzUiwfzxrA5/giphy.gif)
 - Searching a city with the same name but different country (London in the USA example)
 ![alt-text](https://media.giphy.com/media/GJcFTzXWfnRlffBlZc/giphy.gif)
--Five day forecast
+- Five day forecast
 ![alt-text](https://media.giphy.com/media/gt0hmdGvHT0lnC5wAU/giphy.gif)
 ## Languages
 - Java
