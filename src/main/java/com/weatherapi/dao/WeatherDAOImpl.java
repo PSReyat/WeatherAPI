@@ -11,7 +11,7 @@ import okhttp3.Response;
 @Repository
 public class WeatherDAOImpl implements WeatherDAO{
 	
-	private static final String RAPID_API_KEY = "2e0f5e5587msh5b20c6d40614898p14e8aejsn9eec5fb064d8";
+	private static final String RAPID_API_KEY = "[OMITTED - USE YOUR OWN]";
 	
 	//Get current weather for any given city.
 	@Override
