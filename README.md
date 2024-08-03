@@ -1,5 +1,5 @@
 # Developer Updates
-03/08/2024: RapidAPI now requires bank card information in order to access APIs.
+03/08/2024: RapidAPI now requires bank card information in order to access the Open Weather Map API.
 # WeatherAPI
 An API I've created to find out the current weather for a given location
 ## Motivation
